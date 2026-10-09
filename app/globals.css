@@ -1,0 +1,60 @@
+@import "tailwindcss";
+
+:root {
+  --ink: #141218;
+  --violet: #5b3df5;
+  --lime: #c8f03d;
+  --paper: #efeee9;
+  --white: #ffffff;
+  --nav-h: 68px;
+}
+
+@theme inline {
+  --color-ink: var(--ink);
+  --color-violet: var(--violet);
+  --color-lime: var(--lime);
+  --color-paper: var(--paper);
+  --font-sans: var(--font-inter), "Inter", system-ui, sans-serif;
+  --font-display: var(--font-archivo), "Archivo Black", "Arial Black", sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: var(--nav-h);
+}
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-sans);
+}
+
+::selection {
+  background: var(--lime);
+  color: var(--ink);
+}
+
+/* Bandeau défilant */
+@keyframes marquee {
+  to {
+    transform: translateX(-50%);
+  }
+}
+.marquee-track {
+  animation: marquee 28s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .marquee-track {
+    animation: none;
+  }
+}
+
+/* Archivo Black n'existe qu'en 400 : pas de faux gras sur les titres. */
+.mph-root,
+.font-display {
+  font-synthesis-weight: none;
+}
