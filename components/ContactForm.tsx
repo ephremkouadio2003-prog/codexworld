@@ -6,7 +6,7 @@ import { site } from "@/content/site";
 const TYPES = ["Site web", "E-commerce", "App mobile", "SaaS", "Design", "Autre"];
 
 const field =
-  "w-full rounded-2xl border-2 border-paper/25 bg-transparent px-5 py-4 text-paper placeholder:text-paper/40 outline-none transition-colors focus:border-lime";
+  "w-full rounded-2xl border-2 border-paper/25 bg-transparent px-5 py-4 text-paper placeholder:text-paper/40 outline-none transition-all focus:border-lime focus:ring-2 focus:ring-lime/40";
 
 function Chips({
   name,

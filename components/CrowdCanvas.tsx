@@ -231,10 +231,36 @@ const CrowdCanvas = ({ src, rows = 15, cols = 7, className }: CrowdCanvasProps) 
       initCrowd();
     };
 
+    let isRunning = false;
+    const startAnimation = () => {
+      if (isRunning || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+      isRunning = true;
+      gsap.ticker.add(render);
+    };
+
+    const stopAnimation = () => {
+      if (!isRunning) return;
+      isRunning = false;
+      gsap.ticker.remove(render);
+    };
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const [entry] = entries;
+        if (entry?.isIntersecting) {
+          startAnimation();
+        } else {
+          stopAnimation();
+        }
+      },
+      { rootMargin: "150px 0px" }
+    );
+
     const init = () => {
       createPeeps();
       resize();
-      gsap.ticker.add(render);
+      render();
+      observer.observe(canvas);
     };
 
     img.onload = init;
@@ -244,9 +270,10 @@ const CrowdCanvas = ({ src, rows = 15, cols = 7, className }: CrowdCanvasProps) 
     window.addEventListener("resize", handleResize);
 
     return () => {
+      observer.disconnect();
       img.onload = null;
       window.removeEventListener("resize", handleResize);
-      gsap.ticker.remove(render);
+      stopAnimation();
       crowd.forEach((peep) => peep.walk?.kill());
     };
   }, [src, rows, cols]);

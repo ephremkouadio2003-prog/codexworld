@@ -1,8 +1,9 @@
 import Image from "next/image";
 import ContactForm from "@/components/ContactForm";
 import CrowdCanvas from "@/components/CrowdCanvas";
+import TailwindImageAccordion from "@/components/ui/tailwind-image-accordion";
 import ProjectsCarousel from "@/components/ProjectsCarousel";
-import { founders, process, services, site, stack } from "@/content/site";
+import { process, services, site, stack } from "@/content/site";
 
 /* ---------------------------------------------------------------- helpers */
 
@@ -210,38 +211,8 @@ export function Team() {
           </p>
         </div>
 
-        <div className="grid gap-8 md:grid-cols-2">
-          {founders.map((f, i) => (
-            <article key={f.name} data-reveal className="group">
-              <div
-                className={`relative aspect-[4/5] overflow-hidden rounded-[2rem] border-2 border-ink ${
-                  i % 2 ? "bg-violet" : "bg-lime"
-                }`}
-              >
-                {f.photo ? (
-                  <Image
-                    src={f.photo}
-                    alt={`Portrait de ${f.name}`}
-                    fill
-                    sizes="(min-width: 768px) 50vw, 100vw"
-                    className="object-cover object-top grayscale transition-all duration-700 group-hover:scale-105 group-hover:grayscale-0"
-                  />
-                ) : (
-                  <div className="absolute inset-0 flex flex-col items-center justify-center gap-6">
-                    <Image src="/img/logo-mark-white.png" alt="" width={180} height={144} className="opacity-90" />
-                    <span className="font-display text-[clamp(5rem,14vw,10rem)] leading-none text-lime">
-                      {f.initials}
-                    </span>
-                  </div>
-                )}
-                <span className="absolute bottom-5 left-5 rounded-full border-2 border-ink bg-paper px-4 py-1.5 text-xs font-extrabold uppercase">
-                  {f.role}
-                </span>
-              </div>
-              <h3 className="mt-6 font-display text-4xl uppercase tracking-tight md:text-5xl">{f.name}</h3>
-              <p className="mt-3 max-w-md text-lg leading-relaxed text-ink/70">{f.bio}</p>
-            </article>
-          ))}
+        <div data-reveal>
+          <TailwindImageAccordion />
         </div>
       </div>
     </section>
@@ -337,11 +308,17 @@ export function Footer() {
         <div className="grid gap-10 md:grid-cols-[1fr_auto]">
           <div className="flex items-center gap-4">
             <Image src="/img/logo-mark-white.png" alt="" width={90} height={72} />
-            <p className="max-w-xs text-lg font-bold leading-snug">
-              Sites web, applications mobiles & plateformes sur mesure.
-            </p>
+            <div>
+              <p className="max-w-xs text-lg font-bold leading-snug">
+                Sites web, applications mobiles & plateformes sur mesure.
+              </p>
+              <span className="mt-2 inline-flex items-center gap-2 rounded-full border border-paper/30 bg-white/10 px-3 py-1 text-xs font-extrabold uppercase tracking-wide text-paper">
+                <span className="h-1.5 w-1.5 rounded-full bg-lime animate-pulse" />
+                Filiale de Peace Agency
+              </span>
+            </div>
           </div>
-          <ul className="flex flex-wrap gap-6">
+          <ul className="flex flex-wrap items-center gap-6">
             {site.socials.map((s) => (
               <li key={s.label}>
                 <a href={s.href} className="font-extrabold uppercase hover:text-lime">
@@ -360,9 +337,17 @@ export function Footer() {
           className="mt-16 h-auto w-full max-w-[694px] select-none"
         />
 
-        <div className="mt-8 flex flex-col justify-between gap-2 border-t-2 border-paper/25 pt-6 text-sm font-bold md:flex-row">
-          <span>© 2026 Codexworld. Tous droits réservés.</span>
-          <span>Fondée par Ephrem Kouadio & Jérémie Kouassi</span>
+        <div className="mt-8 flex flex-col justify-between gap-4 border-t-2 border-paper/25 pt-6 text-sm font-bold md:flex-row md:items-center">
+          <div className="flex flex-wrap items-center gap-x-3 gap-y-1">
+            <span>© 2026 Codexworld. Tous droits réservés.</span>
+            <span className="hidden opacity-40 md:inline">•</span>
+            <span className="text-paper/90">Filiale de Peace Agency</span>
+          </div>
+          <div className="flex flex-wrap items-center gap-x-3 gap-y-1">
+            <span className="text-paper/80">Fondée par Ephrem Kouadio & Jérémie Kouassi</span>
+            <span className="hidden opacity-40 md:inline">•</span>
+            <span className="font-extrabold text-lime">Propulsé par Codexworld</span>
+          </div>
         </div>
       </div>
     </footer>

@@ -118,7 +118,7 @@ export const projects: {
     year: "2026",
     text: "Boutique en ligne de magazines personnalisés de luxe (24 pages) pour immortaliser les célébrations uniques.",
     color: "violet",
-    image: "/img/projets/peacemagazine.png",
+    image: "/img/projets/peacemagazine.webp",
     href: "https://peacemagazine.shop",
   },
 ];
@@ -158,6 +158,7 @@ export const founders: {
   name: string
   role: string
   bio: string
+  quote?: string
   photo?: string
   initials: string
 }[] = [
@@ -165,6 +166,7 @@ export const founders: {
     name: "Ephrem Kouadio",
     role: "Co-fondateur",
     bio: "Co-fondateur de Codexworld, il accompagne les clients de l'idée jusqu'au produit livré.",
+    quote: "Accompagner chaque projet de l'étincelle initiale jusqu'à un produit livré avec exigence et finesse.",
     photo: "/img/ephrem-kouadio.jpg",
     initials: "EK",
   },
@@ -172,7 +174,9 @@ export const founders: {
     name: "Jérémie Kouassi",
     role: "Co-fondateur",
     bio: "Co-fondateur de Codexworld, il veille à ce que chaque projet soit solide, rapide et bien construit.",
+    quote: "Bâtir des architectures robustes, ultra-performantes et pensées pour durer et scaler.",
     photo: "/img/jeremie-kouassi.jpg",
     initials: "JK",
   },
 ]
+
