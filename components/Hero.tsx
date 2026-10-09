@@ -26,15 +26,16 @@ export default function Hero() {
         href="#contact"
         services={["Sites web", "Applications mobiles", "SaaS & plateformes", "UI / UX design"]}
         greetings={[
-          "Salut ! Bienvenue chez Codexworld 👋",
+          "Salut ! Moi c'est Ephrem, co-fondateur de Codexworld 👋",
           "On transforme vos idées en code.",
           "Psst — on prend de nouveaux projets.",
           "Ok, tu peux arrêter de me chatouiller :)",
         ]}
-        skin="#c68a5e"
-        beanie="#5b3df5"
-        shirt="#141218"
-        tag="#c8f03d"
+        skin="#7b4532"
+        hair="#1c1216"
+        beard="#2a1d1b"
+        glasses="#c9ccd3"
+        shirt="#ececef"
         accent="#c8f03d"
         paper="#efeee9"
         ink="#141218"
