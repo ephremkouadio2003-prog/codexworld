@@ -161,22 +161,47 @@ export const founders: {
   quote?: string
   photo?: string
   initials: string
+  tags?: string[]
 }[] = [
   {
     name: "Ephrem Kouadio",
-    role: "Co-fondateur",
-    bio: "Co-fondateur de Codexworld, il accompagne les clients de l'idée jusqu'au produit livré.",
-    quote: "Accompagner chaque projet de l'étincelle initiale jusqu'à un produit livré avec exigence et finesse.",
+    role: "Co-fondateur & Tech Lead · IA & Produit",
+    bio: "Co-fondateur de Codexworld, il pilote l'architecture technique, l'intégration IA, l'automatisation, la communication et le produit.",
+    quote: "Accompagner chaque vision de l'idée initiale jusqu'à un produit livré avec exigence et finesse.",
     photo: "/img/ephrem-kouadio.jpg",
     initials: "EK",
+    tags: [
+      "Architecture",
+      "Fullstack",
+      "Next.js",
+      "Performance Cloud",
+      "Marketing",
+      "IA",
+      "Automatisation",
+      "Communication",
+      "Produit",
+      "Design UI/UX",
+      "Stratégie",
+      "Web & Mobile",
+    ],
   },
   {
     name: "Jérémie Kouassi",
-    role: "Co-fondateur",
-    bio: "Co-fondateur de Codexworld, il veille à ce que chaque projet soit solide, rapide et bien construit.",
+    role: "Co-fondateur & Tech Lead · Produit",
+    bio: "Co-fondateur de Codexworld, il veille à ce que chaque projet soit solide, rapide, parfaitement conçu et taillé pour scaler.",
     quote: "Bâtir des architectures robustes, ultra-performantes et pensées pour durer et scaler.",
     photo: "/img/jeremie-kouassi.jpg",
     initials: "JK",
+    tags: [
+      "Architecture",
+      "Fullstack",
+      "Next.js",
+      "Performance Cloud",
+      "Produit",
+      "Design UI/UX",
+      "Stratégie",
+      "Web & Mobile",
+    ],
   },
 ]
 

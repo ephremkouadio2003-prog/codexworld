@@ -17,17 +17,39 @@ export const defaultItems: AccordionItem[] = [
     id: "1",
     url: "/img/ephrem-kouadio.jpg",
     title: "Ephrem Kouadio",
-    description: "Co-fondateur & Product Lead",
+    description: "Co-fondateur & Tech Lead · IA & Produit",
     quote: "Accompagner chaque vision de l'idée initiale jusqu'à un produit livré avec exigence et finesse.",
-    tags: ["Produit", "Design UI/UX", "Stratégie", "Web & Mobile"],
+    tags: [
+      "Architecture",
+      "Fullstack",
+      "Next.js",
+      "Performance Cloud",
+      "Marketing",
+      "IA",
+      "Automatisation",
+      "Communication",
+      "Produit",
+      "Design UI/UX",
+      "Stratégie",
+      "Web & Mobile",
+    ],
   },
   {
     id: "2",
     url: "/img/jeremie-kouassi.jpg",
     title: "Jérémie Kouassi",
-    description: "Co-fondateur & Tech Lead",
+    description: "Co-fondateur & Tech Lead · Produit",
     quote: "Bâtir des architectures robustes, ultra-performantes et pensées pour durer et scaler.",
-    tags: ["Architecture", "Fullstack", "Next.js", "Performance Cloud"],
+    tags: [
+      "Architecture",
+      "Fullstack",
+      "Next.js",
+      "Performance Cloud",
+      "Produit",
+      "Design UI/UX",
+      "Stratégie",
+      "Web & Mobile",
+    ],
   },
 ];
 
@@ -73,7 +95,7 @@ export function TailwindImageAccordion({
           >
             {/* Dark gradient overlay for readable text */}
             <div
-              className={`absolute inset-x-0 bottom-0 h-3/4 bg-gradient-to-t from-black/95 via-black/60 to-transparent z-10 transition-opacity duration-300 ${
+              className={`absolute inset-x-0 bottom-0 h-4/5 bg-gradient-to-t from-black/95 via-black/70 to-transparent z-10 transition-opacity duration-300 ${
                 isHovered ? "opacity-100" : "opacity-80"
               }`}
             />
@@ -112,7 +134,7 @@ export function TailwindImageAccordion({
                 <div
                   className={`flex flex-wrap gap-1.5 mt-3 transition-all duration-400 ${
                     isHovered
-                      ? "opacity-100 max-h-12 translate-y-0"
+                      ? "opacity-100 max-h-48 translate-y-0"
                       : "opacity-0 max-h-0 translate-y-2 overflow-hidden"
                   }`}
                 >
@@ -130,7 +152,7 @@ export function TailwindImageAccordion({
 
             {/* Founder portrait photo */}
             <Image
-              className={`object-cover object-top h-80 md:h-[420px] w-full transition-transform duration-700 ease-out ${
+              className={`object-cover object-top h-96 md:h-[460px] w-full transition-transform duration-700 ease-out ${
                 isHovered ? "scale-105" : "scale-100"
               }`}
               src={item.url}
