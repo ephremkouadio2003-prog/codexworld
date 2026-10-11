@@ -1,10 +1,19 @@
 "use client";
 
+import { Instrument_Serif } from "next/font/google";
 import DiscCascadeCarousel, {
   type DiscCascadeItem,
   type DiscPattern,
 } from "@/components/DiscCascadeCarousel";
 import { projects } from "@/content/site";
+
+// Police auto-hébergée (next/font) : plus aucune requête vers Google Fonts au
+// runtime, et cohérence avec la CSP (font-src 'self').
+const instrument = Instrument_Serif({
+  weight: "400",
+  style: ["normal", "italic"],
+  subsets: ["latin"],
+});
 
 const DISC_PATTERNS: DiscPattern[] = [
   "horizon",
@@ -113,8 +122,7 @@ export default function ProjectsCarousel() {
       reviews={true}
       loop={true}
       onSelect={handleSelect}
-      fontHref="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap"
-      serif='"Instrument Serif", "Bodoni Moda", Didot, serif'
+      serif={`${instrument.style.fontFamily}, "Bodoni Moda", Didot, serif`}
       sans='var(--font-inter), "Inter", ui-sans-serif, system-ui, sans-serif'
       display='var(--font-archivo), "Archivo Black", "Oswald", Impact, sans-serif'
       className="w-full"

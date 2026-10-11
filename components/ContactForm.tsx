@@ -53,6 +53,9 @@ export default function ContactForm() {
   const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const data = new FormData(e.currentTarget);
+    // Piège anti-spam : un champ invisible qu'un humain ne remplit jamais.
+    // Les bots le remplissent → on abandonne silencieusement l'envoi.
+    if (String(data.get("company") ?? "") !== "") return;
     const name = String(data.get("name") ?? "");
     const email = String(data.get("email") ?? "");
     const message = String(data.get("message") ?? "");
@@ -71,6 +74,13 @@ export default function ContactForm() {
 
   return (
     <form onSubmit={onSubmit} className="grid gap-6">
+      {/* Honeypot : masqué aux humains, ignoré des lecteurs d'écran, sans tabindex. */}
+      <div aria-hidden="true" style={{ position: "absolute", left: "-9999px", width: 1, height: 1, overflow: "hidden" }}>
+        <label>
+          Société
+          <input type="text" name="company" tabIndex={-1} autoComplete="off" />
+        </label>
+      </div>
       <div className="grid gap-4 sm:grid-cols-2">
         <label className="grid gap-2">
           <span className="text-sm font-bold uppercase tracking-wide text-paper/60">Nom</span>
