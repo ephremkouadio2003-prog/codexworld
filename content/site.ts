@@ -5,11 +5,11 @@ export const site = {
   name: "Codexworld",
   tagline: "Agence de développement web & mobile",
   // TODO: remplacer par le vrai nom de domaine (sans / final).
-  url: "https://codexworld.com",
+  url: "https://codexworld.site",
   description:
     "Codexworld conçoit et développe des sites web, applications mobiles et plateformes SaaS sur mesure — du design au déploiement.",
   // TODO: remplacer par l'adresse de contact réelle de l'agence.
-  email: "contact@codexworld.com",
+  email: "contact@codexworld.site",
   socials: [
     // TODO: renseigner les vrais liens.
     { label: "Instagram", href: "#" },
