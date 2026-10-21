@@ -137,7 +137,7 @@ export const projects: {
     text: "Service de personal shopper à Abidjan : achat sécurisé en Europe et en Chine, devis ferme en 24-48h et livraison à domicile.",
     color: "ink",
     image: "/img/projets/panbi.webp",
-    href: "https://panbi.shop",
+    href: "https://panbi.vercel.app",
   },
 ];
 
