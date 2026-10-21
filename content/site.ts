@@ -121,6 +121,24 @@ export const projects: {
     image: "/img/projets/peacemagazine.webp",
     href: "https://peacemagazine.shop",
   },
+  {
+    title: "Palm Aura",
+    category: "Tourisme & Réservation",
+    year: "2026",
+    text: "Résidences meublées de prestige à Jacqueville : présentation des villas, réservation en ligne et séjours entre mer et lagune.",
+    color: "lime",
+    image: "/img/projets/palmaura.jpg",
+    href: "https://www.palmaura-residences.com",
+  },
+  {
+    title: "Panbi",
+    category: "E-commerce & Personal Shopper",
+    year: "2026",
+    text: "Service de personal shopper à Abidjan : achat sécurisé en Europe et en Chine, devis ferme en 24-48h et livraison à domicile.",
+    color: "ink",
+    image: "/img/projets/panbi.webp",
+    href: "https://panbi.shop",
+  },
 ];
 
 export const process = [

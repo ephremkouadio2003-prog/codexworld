@@ -58,6 +58,14 @@ const REVIEWS_BY_PROJECT: Record<string, { quote1: string; quote2: string }> = {
     quote1: "Magazines personnalisés de 24 pages pour immortaliser vos moments clés.",
     quote2: "Parcours de création simple, impression de luxe et livraison soignée.",
   },
+  "Palm Aura": {
+    quote1: "Résidences meublées de prestige à Jacqueville, entre mer et lagune.",
+    quote2: "Villas d'exception et réservation en ligne pour des séjours de rêve.",
+  },
+  Panbi: {
+    quote1: "Le personal shopper d'Abidjan : on trouve l'introuvable en Europe et en Chine.",
+    quote2: "Devis ferme en 24-48h, paiement Mobile Money et livraison à domicile.",
+  },
 };
 
 const DISC_ITEMS: DiscCascadeItem[] = projects.map((p, idx) => {
