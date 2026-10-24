@@ -18,43 +18,56 @@ export const site = {
   ],
 }
 
+// Liens absolus (« /#… ») pour fonctionner aussi depuis les autres pages (404, mentions légales).
 export const nav = [
-  { label: "Services", href: "#services" },
-  { label: "Projets", href: "#projets" },
-  { label: "Process", href: "#process" },
-  { label: "Équipe", href: "#equipe" },
+  { label: "Services", href: "/#services" },
+  { label: "Projets", href: "/#projets" },
+  { label: "Méthode", href: "/#methode" },
+  { label: "Équipe", href: "/#equipe" },
 ]
 
-export const services = [
+export const services: {
+  title: string;
+  text: string;
+  tags: string[];
+  /** Illustration « spot » du kit (public/img/spots). */
+  illustration: string;
+}[] = [
   {
-    title: "Sites web & vitrines",
-    text: "Des sites rapides, élégants et optimisés pour le référencement, qui donnent envie de vous contacter.",
-    tags: ["Next.js", "SEO", "CMS"],
-  },
-  {
-    title: "E-commerce",
-    text: "Boutiques en ligne pensées pour convertir : catalogue, paiement, livraison et back-office simple.",
-    tags: ["Paiement", "Stocks", "Analytics"],
+    title: "Sites web",
+    text: "Sites vitrines, landing pages et sites éditoriaux rapides, élégants, optimisés pour le référencement et faciles à mettre à jour.",
+    tags: ["Vitrine", "Landing", "SEO"],
+    illustration: "/img/spots/site-web.svg",
   },
   {
     title: "Applications mobiles",
-    text: "Apps iOS et Android fluides, avec une seule base de code et une expérience vraiment native.",
+    text: "Apps iOS et Android fluides, avec une seule base de code et une expérience vraiment native, du prototype aux stores.",
     tags: ["React Native", "iOS", "Android"],
+    illustration: "/img/spots/app-mobile.svg",
   },
   {
     title: "SaaS & plateformes",
-    text: "Tableaux de bord, outils métier et plateformes multi-utilisateurs, solides et prêts à grandir.",
-    tags: ["API", "Auth", "Cloud"],
+    text: "Comptes utilisateurs, abonnements, tableaux de bord : on bâtit votre logiciel en ligne, solide et prêt à grandir.",
+    tags: ["Multi-comptes", "Abonnements", "Dashboard"],
+    illustration: "/img/spots/saas.svg",
   },
   {
-    title: "UI / UX design",
-    text: "Maquettes, prototypes et design systems : on dessine l'expérience avant d'écrire une ligne de code.",
-    tags: ["Figma", "Prototype", "Design system"],
+    title: "E-commerce",
+    text: "Boutiques en ligne claires et rassurantes : catalogue, paiement Mobile Money et carte, livraison et back-office simple.",
+    tags: ["Catalogue", "Mobile Money", "Livraison"],
+    illustration: "/img/spots/e-commerce.svg",
+  },
+  {
+    title: "API & intégrations",
+    text: "On connecte vos outils entre eux : paiement, CRM, ERP, automatisations et API sur mesure, documentées.",
+    tags: ["REST", "Webhooks", "Automatisation"],
+    illustration: "/img/spots/api.svg",
   },
   {
     title: "Maintenance & évolution",
-    text: "Hébergement, mises à jour, nouvelles fonctionnalités : on reste à vos côtés après le lancement.",
-    tags: ["Support", "Monitoring", "Évolutions"],
+    text: "Mises à jour, sécurité, sauvegardes et nouvelles fonctionnalités : votre projet reste en forme après le lancement.",
+    tags: ["Sécurité", "Suivi", "Évolutions"],
+    illustration: "/img/spots/maintenance-support.svg",
   },
 ]
 
@@ -141,22 +154,32 @@ export const projects: {
   },
 ];
 
+// Les quatre étapes de la méthode. `at` : progression (0 → 1) du scroll à
+// laquelle l'étape s'allume dans la frise.
 export const process = [
   {
-    title: "Découverte",
-    text: "On écoute votre besoin, vos objectifs et vos utilisateurs. Vous repartez avec un devis clair.",
+    title: "Idée",
+    text: "On écoute votre projet, vos objectifs et vos contraintes, puis on vous propose un plan clair et un devis.",
+    tag: "atelier · devis",
+    at: 0.05,
   },
   {
     title: "Design",
-    text: "Maquettes et prototype cliquable : vous voyez votre produit avant qu'il soit codé.",
+    text: "Maquettes, parcours utilisateur et identité visuelle : vous voyez votre produit avant qu'il existe.",
+    tag: "UX/UI · prototype",
+    at: 0.35,
   },
   {
-    title: "Développement",
-    text: "Sprints courts, démos régulières, code propre et testé. Vous suivez l'avancement en direct.",
+    title: "Code",
+    text: "Développement sur mesure, par petites étapes que vous testez au fur et à mesure.",
+    tag: "dev · recette",
+    at: 0.62,
   },
   {
-    title: "Lancement & suivi",
-    text: "Mise en ligne, formation, puis maintenance et évolutions au rythme de votre croissance.",
+    title: "Lancement",
+    text: "Mise en ligne, formation et suivi. Votre projet est lancé, et on reste là.",
+    tag: "mise en ligne · suivi",
+    at: 0.9,
   },
 ]
 
@@ -223,3 +246,52 @@ export const founders: {
   },
 ]
 
+
+/* ------------------------------------------------------------ formulaire */
+
+export const projectTypes = [
+  "Site web (vitrine, landing page)",
+  "Application mobile",
+  "Application web",
+  "Plateforme SaaS",
+  "E-commerce",
+  "API & intégrations",
+  "Maintenance / refonte",
+  "Autre",
+]
+
+// Fourchettes indicatives, en francs CFA (XOF).
+export const budgets = [
+  "Moins de 500 000 FCFA",
+  "500 000 – 1 500 000 FCFA",
+  "1 500 000 – 4 000 000 FCFA",
+  "4 000 000 – 10 000 000 FCFA",
+  "Plus de 10 000 000 FCFA",
+  "Je ne sais pas encore",
+]
+
+/* -------------------------------------------------------- mentions légales */
+
+// TODO: compléter les champs entre crochets avant la mise en ligne.
+export const legal = {
+  updatedAt: "24 octobre 2026",
+  company: {
+    tradeName: site.name,
+    legalName: "[Raison sociale]",
+    legalForm: "[SARL / SARLU / Entreprise individuelle]",
+    capital: "[Montant] FCFA",
+    address: "[Adresse], Abidjan, Côte d'Ivoire",
+    rccm: "[Numéro RCCM]",
+    taxId: "[Numéro de compte contribuable]",
+    phone: "[+225 00 00 00 00 00]",
+    parent: "Peace Agency",
+  },
+  publisher: { name: "Ephrem Kouadio", role: "co-fondateur" },
+  host: {
+    name: "Vercel Inc.",
+    address: "440 N Barranca Ave #4133, Covina, CA 91723, États-Unis",
+    website: "https://vercel.com",
+  },
+  dataRetention: "3 ans",
+  formProvider: "Formspree",
+}

@@ -1,9 +1,11 @@
 import Image from "next/image";
+import Link from "next/link";
 import ContactForm from "@/components/ContactForm";
 import CrowdCanvas from "@/components/CrowdCanvas";
+import ProcessOrbit from "@/components/ProcessOrbit";
 import TailwindImageAccordion from "@/components/ui/tailwind-image-accordion";
 import ProjectsCarousel from "@/components/ProjectsCarousel";
-import { process, services, site, stack } from "@/content/site";
+import { services, site, stack } from "@/content/site";
 
 /* ---------------------------------------------------------------- helpers */
 
@@ -65,14 +67,14 @@ export function Services() {
           <div className="grid gap-6">
             <Eyebrow index="01">Services</Eyebrow>
             <Title>
-              Ce qu&apos;on
+              Vous avez une idée&nbsp;?
               <br />
-              <span className="text-violet">construit</span> pour vous
+              <span className="text-violet">On la code.</span>
             </Title>
           </div>
           <p data-reveal className="max-w-sm text-lg leading-relaxed text-ink/70">
-            Une équipe, un interlocuteur, de l&apos;idée au produit en ligne. On s&apos;occupe du design, du
-            code et de tout ce qu&apos;il y a entre les deux.
+            Six façons de donner vie à votre projet. Chaque fois du sur mesure, pensé pour vos utilisateurs et
+            construit pour durer.
           </p>
         </div>
 
@@ -81,25 +83,28 @@ export function Services() {
             <li
               key={s.title}
               data-reveal
-              className="group flex min-h-[300px] flex-col justify-between gap-10 bg-paper p-8 transition-colors duration-300 hover:bg-ink hover:text-paper"
+              className="group relative flex flex-col gap-6 bg-paper p-7 transition-colors duration-300 hover:bg-white md:p-8"
             >
-              <div className="flex items-start justify-between">
-                <span className="font-display text-5xl text-violet transition-colors group-hover:text-lime">
-                  {String(i + 1).padStart(2, "0")}
-                </span>
-                <span
-                  aria-hidden="true"
-                  className="flex h-12 w-12 items-center justify-center rounded-full border-2 border-current text-xl transition-transform duration-300 group-hover:-rotate-45 group-hover:bg-lime group-hover:text-ink group-hover:border-lime"
-                >
-                  →
-                </span>
-              </div>
+              <span className="absolute right-7 top-6 font-display text-sm text-ink/40 transition-colors group-hover:text-violet md:right-8">
+                {String(i + 1).padStart(2, "0")}
+              </span>
+              <Image
+                src={s.illustration}
+                alt=""
+                width={1600}
+                height={1200}
+                unoptimized
+                className="h-auto w-full max-w-[320px] transition-transform duration-500 ease-out group-hover:-translate-y-1 group-hover:rotate-[-1.5deg]"
+              />
               <div className="grid gap-4">
                 <h3 className="font-display text-2xl uppercase tracking-tight md:text-3xl">{s.title}</h3>
-                <p className="leading-relaxed opacity-75">{s.text}</p>
+                <p className="leading-relaxed text-ink/70">{s.text}</p>
                 <div className="flex flex-wrap gap-2">
                   {s.tags.map((t) => (
-                    <span key={t} className="rounded-full border border-current px-3 py-1 text-xs font-bold uppercase opacity-80">
+                    <span
+                      key={t}
+                      className="rounded-full border border-ink/30 px-3 py-1 text-xs font-bold uppercase transition-colors group-hover:border-violet group-hover:text-violet"
+                    >
                       {t}
                     </span>
                   ))}
@@ -146,34 +151,26 @@ export function Projects() {
 
 export function Process() {
   return (
-    <section id="process" className="bg-ink px-4 py-24 text-paper md:px-8 md:py-36">
+    <section id="methode" className="bg-ink px-4 py-24 text-paper md:px-8 md:py-36">
       <div className="mx-auto max-w-[1400px]">
-        <div className="mb-14 grid gap-6 md:mb-20">
-          <Eyebrow index="03" dark>
-            Process
-          </Eyebrow>
-          <Title>
-            De l&apos;idée
-            <br />
-            au <span className="text-lime">lancement</span>
-          </Title>
+        <div className="mb-14 grid gap-8 md:mb-20 md:grid-cols-[1fr_auto] md:items-end">
+          <div className="grid gap-6">
+            <Eyebrow index="03" dark>
+              Méthode
+            </Eyebrow>
+            <Title>
+              Quatre étapes,
+              <br />
+              <span className="text-lime">zéro surprise.</span>
+            </Title>
+          </div>
+          <p data-reveal className="max-w-sm text-lg leading-relaxed text-paper/70">
+            Un chemin clair, des points d&apos;étape réguliers et un seul interlocuteur, du premier appel jusqu&apos;à
+            la mise en ligne.
+          </p>
         </div>
 
-        <ol className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
-          {process.map((s, i) => (
-            <li
-              key={s.title}
-              data-reveal
-              className="relative flex flex-col gap-6 rounded-[2rem] border-2 border-paper/20 p-8 transition-colors hover:border-lime"
-            >
-              <span className="flex h-14 w-14 items-center justify-center rounded-full bg-lime font-display text-xl text-ink">
-                {i + 1}
-              </span>
-              <h3 className="font-display text-2xl uppercase">{s.title}</h3>
-              <p className="leading-relaxed text-paper/70">{s.text}</p>
-            </li>
-          ))}
-        </ol>
+        <ProcessOrbit />
 
         <div data-reveal className="mt-20 grid gap-6 border-t-2 border-paper/15 pt-10 md:grid-cols-[auto_1fr] md:items-center md:gap-12">
           <span className="text-sm font-extrabold uppercase tracking-wider text-paper/50">Notre stack</span>
@@ -275,13 +272,13 @@ export function Contact() {
             Contact
           </Eyebrow>
           <Title>
-            On
+            Prêt à
             <br />
-            en <span className="text-lime">parle</span> ?
+            <span className="text-lime">décoller&nbsp;?</span>
           </Title>
           <p data-reveal className="max-w-md text-lg leading-relaxed text-paper/70">
-            Décrivez-nous votre projet en quelques lignes. On revient vers vous rapidement avec des questions et des idées
-            pour donner vie à votre projet.
+            Racontez-nous votre projet en quelques lignes. On revient vers vous avec des questions, des idées et une
+            première estimation.
           </p>
           <a
             data-reveal
@@ -290,6 +287,14 @@ export function Contact() {
           >
             {site.email}
           </a>
+          <Image
+            data-reveal
+            src="/img/codi/codi-06-decollage.webp"
+            alt="Codi, la mascotte de Codexworld, en plein décollage"
+            width={1024}
+            height={1024}
+            className="codi-drift hidden w-56 justify-self-start lg:block"
+          />
         </div>
         <div data-reveal className="rounded-[2rem] border-2 border-paper/15 p-6 md:p-10">
           <ContactForm />
@@ -305,7 +310,7 @@ export function Footer() {
   return (
     <footer className="overflow-hidden bg-violet px-4 pb-8 pt-20 text-paper md:px-8">
       <div className="mx-auto max-w-[1400px]">
-        <div className="grid gap-10 md:grid-cols-[1fr_auto]">
+        <div className="grid gap-10 md:grid-cols-[1fr_auto] md:items-center">
           <div className="flex items-center gap-4">
             <Image src="/img/logo-mark-white.png" alt="" width={90} height={72} />
             <div>
@@ -318,15 +323,24 @@ export function Footer() {
               </span>
             </div>
           </div>
-          <ul className="flex flex-wrap items-center gap-6">
-            {site.socials.map((s) => (
-              <li key={s.label}>
-                <a href={s.href} className="font-extrabold uppercase hover:text-lime">
-                  {s.label}
-                </a>
-              </li>
-            ))}
-          </ul>
+          <div className="flex items-center gap-6">
+            <ul className="flex flex-wrap items-center gap-6">
+              {site.socials.map((s) => (
+                <li key={s.label}>
+                  <a href={s.href} className="font-extrabold uppercase hover:text-lime">
+                    {s.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+            <Image
+              src="/img/codi/codi-01-coucou.webp"
+              alt="Codi, la mascotte de Codexworld, fait coucou"
+              width={1024}
+              height={1024}
+              className="hidden w-24 md:block"
+            />
+          </div>
         </div>
 
         <Image
@@ -343,12 +357,21 @@ export function Footer() {
             <span className="hidden opacity-40 md:inline">•</span>
             <span className="text-paper/90">Filiale de Peace Agency</span>
           </div>
-          <div className="flex flex-wrap items-center gap-x-3 gap-y-1">
-            <span className="text-paper/80">Fondée par Ephrem Kouadio & Jérémie Kouassi</span>
+          <nav aria-label="Liens légaux" className="flex flex-wrap items-center gap-x-3 gap-y-1">
+            <Link href="/mentions-legales" className="underline decoration-lime underline-offset-4 hover:text-lime">
+              Mentions légales
+            </Link>
             <span className="hidden opacity-40 md:inline">•</span>
-            <span className="font-extrabold text-lime">Propulsé par Codexworld</span>
-          </div>
+            <Link href="/mentions-legales#donnees" className="underline decoration-lime underline-offset-4 hover:text-lime">
+              Politique de confidentialité
+            </Link>
+          </nav>
         </div>
+        <p className="mt-4 flex flex-wrap items-center gap-x-3 gap-y-1 text-sm font-bold">
+          <span className="text-paper/80">Fondée par Ephrem Kouadio & Jérémie Kouassi</span>
+          <span className="hidden opacity-40 md:inline">•</span>
+          <span className="font-extrabold text-lime">Propulsé par Codexworld</span>
+        </p>
       </div>
     </footer>
   );

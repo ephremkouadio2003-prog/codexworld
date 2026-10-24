@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { useState } from "react";
 import { nav } from "@/content/site";
 
@@ -10,7 +11,7 @@ export default function Header() {
   return (
     <header className="sticky top-0 z-50 h-[var(--nav-h)] border-b-2 border-ink bg-paper/90 backdrop-blur">
       <div className="mx-auto flex h-full max-w-[1400px] items-center justify-between px-4 md:px-8">
-        <a href="#top" className="flex items-center gap-2" aria-label="Codexworld — accueil">
+        <Link href="/" className="flex items-center gap-2" aria-label="Codexworld — accueil">
           <Image src="/img/logo-mark.png" alt="" width={44} height={35} priority />
           <Image
             src="/img/logo-word.png"
@@ -20,24 +21,24 @@ export default function Header() {
             priority
             className="hidden sm:block"
           />
-        </a>
+        </Link>
 
         <nav className="hidden items-center gap-8 md:flex" aria-label="Navigation principale">
           {nav.map((item) => (
-            <a
+            <Link
               key={item.href}
               href={item.href}
               className="relative text-sm font-extrabold uppercase tracking-wide after:absolute after:-bottom-1 after:left-0 after:h-[3px] after:w-full after:origin-left after:scale-x-0 after:bg-lime after:transition-transform hover:after:scale-x-100"
             >
               {item.label}
-            </a>
+            </Link>
           ))}
-          <a
-            href="#contact"
+          <Link
+            href="/#contact"
             className="rounded-full border-2 border-ink bg-lime px-5 py-2 text-sm font-extrabold uppercase transition-colors hover:bg-ink hover:text-paper"
           >
             Démarrer un projet
-          </a>
+          </Link>
         </nav>
 
         <button
@@ -68,23 +69,23 @@ export default function Header() {
           <ul className="flex flex-col">
             {nav.map((item) => (
               <li key={item.href}>
-                <a
+                <Link
                   href={item.href}
                   onClick={() => setOpen(false)}
                   className="block border-b border-ink/15 py-4 font-display text-3xl uppercase"
                 >
                   {item.label}
-                </a>
+                </Link>
               </li>
             ))}
           </ul>
-          <a
-            href="#contact"
+          <Link
+            href="/#contact"
             onClick={() => setOpen(false)}
             className="mt-6 block rounded-full border-2 border-ink bg-lime px-5 py-3 text-center font-extrabold uppercase"
           >
             Démarrer un projet
-          </a>
+          </Link>
         </nav>
       )}
     </header>

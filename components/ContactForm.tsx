@@ -1,129 +1,180 @@
 "use client";
 
+import Link from "next/link";
 import { useState } from "react";
-import { site } from "@/content/site";
+import { budgets, projectTypes, site } from "@/content/site";
 
-const TYPES = ["Site web", "E-commerce", "App mobile", "SaaS", "Design", "Autre"];
+// Envoi du formulaire :
+// - si NEXT_PUBLIC_FORMSPREE_ID est défini (ex. « abcdwxyz », depuis https://formspree.io),
+//   le message est envoyé à Formspree et arrive directement par e-mail ;
+// - sinon, le formulaire ouvre la messagerie du visiteur avec le message pré-rempli.
+const FORMSPREE_ID = process.env.NEXT_PUBLIC_FORMSPREE_ID;
+
+type Status = { kind: "ok" | "err"; text: string } | null;
 
 const field =
   "w-full rounded-2xl border-2 border-paper/25 bg-transparent px-5 py-4 text-paper placeholder:text-paper/40 outline-none transition-all focus:border-lime focus:ring-2 focus:ring-lime/40";
+const select = `${field} select-chevron cursor-pointer appearance-none pr-12 [&>option]:bg-ink [&>option]:text-paper`;
+const label = "text-sm font-bold uppercase tracking-wide text-paper/60";
 
-function Chips({
-  name,
-  options,
-  value,
-  onChange,
-}: {
-  name: string;
-  options: string[];
-  value: string;
-  onChange: (v: string) => void;
-}) {
-  return (
-    <div className="flex flex-wrap gap-2" role="radiogroup" aria-label={name}>
-      {options.map((o) => {
-        const on = value === o;
-        return (
-          <button
-            key={o}
-            type="button"
-            role="radio"
-            aria-checked={on}
-            onClick={() => onChange(on ? "" : o)}
-            className={`rounded-full border-2 px-4 py-2 text-sm font-bold transition-colors ${
-              on
-                ? "border-lime bg-lime text-ink"
-                : "border-paper/25 text-paper hover:border-lime"
-            }`}
-          >
-            {o}
-          </button>
-        );
-      })}
-    </div>
-  );
-}
-
-// Pas de backend : le formulaire prépare un e-mail dans le logiciel du visiteur.
-// Pour recevoir les messages directement, branchez un service (Formspree,
-// Resend, une route API…) dans `onSubmit`.
 export default function ContactForm() {
-  const [type, setType] = useState("");
+  const [status, setStatus] = useState<Status>(null);
+  const [sending, setSending] = useState(false);
 
-  const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const data = new FormData(e.currentTarget);
+    const form = e.currentTarget;
+    setStatus(null);
+
+    if (!form.checkValidity()) {
+      setStatus({
+        kind: "err",
+        text: "Merci de remplir les champs obligatoires : nom, e-mail valide, type de projet, message et consentement.",
+      });
+      form.querySelector<HTMLElement>(":invalid")?.focus();
+      return;
+    }
+
+    const data = new FormData(form);
     // Piège anti-spam : un champ invisible qu'un humain ne remplit jamais.
-    // Les bots le remplissent → on abandonne silencieusement l'envoi.
-    if (String(data.get("company") ?? "") !== "") return;
-    const name = String(data.get("name") ?? "");
+    if (String(data.get("_gotcha") ?? "") !== "") return;
+
+    const name = String(data.get("nom") ?? "");
     const email = String(data.get("email") ?? "");
+    const type = String(data.get("type_de_projet") ?? "");
+    const budget = String(data.get("budget") ?? "") || "non précisé";
     const message = String(data.get("message") ?? "");
-    const subject = `Nouveau projet${type ? ` — ${type}` : ""} — ${name}`;
-    const body = [
-      `Nom : ${name}`,
-      `E-mail : ${email}`,
-      type && `Type de projet : ${type}`,
-      "",
-      message,
-    ]
-      .filter((l) => l !== "")
-      .join("\n");
-    window.location.href = `mailto:${site.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+    if (!FORMSPREE_ID) {
+      const subject = `Nouveau projet : ${type} — ${name}`;
+      const body = `Nom : ${name}\nE-mail : ${email}\nType de projet : ${type}\nBudget : ${budget}\n\n${message}`;
+      window.location.href = `mailto:${site.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+      setStatus({
+        kind: "ok",
+        text: `Votre messagerie va s'ouvrir avec votre message pré-rempli. Sinon, écrivez-nous à ${site.email}.`,
+      });
+      return;
+    }
+
+    setSending(true);
+    try {
+      const res = await fetch(`https://formspree.io/f/${FORMSPREE_ID}`, {
+        method: "POST",
+        body: data,
+        headers: { Accept: "application/json" },
+      });
+      if (!res.ok) throw new Error(String(res.status));
+      form.reset();
+      setStatus({ kind: "ok", text: "Merci ! Votre message est bien parti. On vous répond très vite." });
+    } catch {
+      setStatus({ kind: "err", text: `L'envoi n'a pas fonctionné. Écrivez-nous directement à ${site.email}.` });
+    } finally {
+      setSending(false);
+    }
   };
 
   return (
-    <form onSubmit={onSubmit} className="grid gap-6">
+    <form onSubmit={onSubmit} noValidate className="grid gap-6">
+      <input type="hidden" name="_subject" value={`Nouveau projet via ${site.url.replace(/^https?:\/\//, "")}`} />
       {/* Honeypot : masqué aux humains, ignoré des lecteurs d'écran, sans tabindex. */}
       <div aria-hidden="true" style={{ position: "absolute", left: "-9999px", width: 1, height: 1, overflow: "hidden" }}>
         <label>
-          Société
-          <input type="text" name="company" tabIndex={-1} autoComplete="off" />
-        </label>
-      </div>
-      <div className="grid gap-4 sm:grid-cols-2">
-        <label className="grid gap-2">
-          <span className="text-sm font-bold uppercase tracking-wide text-paper/60">Nom</span>
-          <input name="name" required autoComplete="name" placeholder="Votre nom" className={field} />
-        </label>
-        <label className="grid gap-2">
-          <span className="text-sm font-bold uppercase tracking-wide text-paper/60">E-mail</span>
-          <input
-            name="email"
-            type="email"
-            required
-            autoComplete="email"
-            placeholder="vous@exemple.com"
-            className={field}
-          />
+          Ne pas remplir
+          <input type="text" name="_gotcha" tabIndex={-1} autoComplete="off" />
         </label>
       </div>
 
-      <div className="grid gap-3">
-        <span className="text-sm font-bold uppercase tracking-wide text-paper/60">Type de projet</span>
-        <Chips name="Type de projet" options={TYPES} value={type} onChange={setType} />
+      <div className="grid gap-4 sm:grid-cols-2">
+        <label className="grid gap-2">
+          <span className={label}>Nom</span>
+          <input name="nom" required autoComplete="name" placeholder="Votre nom" className={field} />
+        </label>
+        <label className="grid gap-2">
+          <span className={label}>E-mail</span>
+          <input name="email" type="email" required autoComplete="email" placeholder="vous@exemple.com" className={field} />
+        </label>
+      </div>
+
+      <div className="grid gap-4 sm:grid-cols-2">
+        <label className="grid gap-2">
+          <span className={label}>Type de projet</span>
+          <select name="type_de_projet" required defaultValue="" className={select}>
+            <option value="" disabled>
+              Choisir…
+            </option>
+            {projectTypes.map((t) => (
+              <option key={t}>{t}</option>
+            ))}
+          </select>
+        </label>
+        <label className="grid gap-2">
+          <span className={label}>
+            Budget envisagé <span className="normal-case tracking-normal text-paper/40">(indicatif)</span>
+          </span>
+          <select name="budget" defaultValue="" className={select}>
+            <option value="">Choisir…</option>
+            {budgets.map((b) => (
+              <option key={b}>{b}</option>
+            ))}
+          </select>
+        </label>
       </div>
 
       <label className="grid gap-2">
-        <span className="text-sm font-bold uppercase tracking-wide text-paper/60">Votre projet</span>
+        <span className={label}>Votre projet</span>
         <textarea
           name="message"
           required
           rows={5}
-          placeholder="Parlez-nous de votre idée, vos objectifs, vos délais…"
+          placeholder="Votre idée, vos objectifs, vos délais…"
           className={`${field} resize-y`}
         />
       </label>
 
-      <button
-        type="submit"
-        className="group inline-flex items-center justify-center gap-3 justify-self-start rounded-full border-2 border-lime bg-lime px-8 py-4 font-extrabold uppercase text-ink transition-colors hover:bg-transparent hover:text-lime"
-      >
-        Envoyer
-        <span aria-hidden="true" className="transition-transform group-hover:translate-x-1">
-          →
+      <label className="flex items-start gap-3 text-sm text-paper/70">
+        <input
+          name="consentement"
+          type="checkbox"
+          required
+          className="mt-0.5 h-5 w-5 shrink-0 cursor-pointer appearance-none rounded-md border-2 border-paper/40 bg-transparent transition-colors checked:border-lime checked:bg-lime checked:bg-[url('data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 16 16%27 fill=%27none%27 stroke=%27%23141218%27 stroke-width=%273%27 stroke-linecap=%27round%27 stroke-linejoin=%27round%27%3E%3Cpath d=%27M3 8.5l3 3 7-7%27/%3E%3C/svg%3E')] checked:bg-center checked:bg-no-repeat focus-visible:ring-2 focus-visible:ring-lime/60"
+        />
+        <span>
+          J&apos;accepte que mes informations soient utilisées pour être recontacté au sujet de mon projet. Voir la{" "}
+          <Link href="/mentions-legales#donnees" className="underline decoration-lime underline-offset-4 hover:text-lime">
+            politique de confidentialité
+          </Link>
+          .
         </span>
-      </button>
+      </label>
+
+      <p
+        role="status"
+        aria-live="polite"
+        className={`rounded-2xl px-4 py-3 text-sm font-semibold ${
+          !status ? "hidden" : status.kind === "ok" ? "bg-lime/15 text-lime" : "bg-red-500/15 text-red-200"
+        }`}
+      >
+        {status?.text}
+      </p>
+
+      <div className="flex flex-wrap items-center justify-between gap-4">
+        <small className="text-sm text-paper/50">
+          Ou écrivez-nous directement :{" "}
+          <a href={`mailto:${site.email}`} className="underline decoration-lime underline-offset-4 hover:text-lime">
+            {site.email}
+          </a>
+        </small>
+        <button
+          type="submit"
+          disabled={sending}
+          className="group inline-flex items-center justify-center gap-3 rounded-full border-2 border-lime bg-lime px-8 py-4 font-extrabold uppercase text-ink transition-colors hover:bg-transparent hover:text-lime disabled:cursor-wait disabled:opacity-60"
+        >
+          {sending ? "Envoi…" : "Envoyer"}
+          <span aria-hidden="true" className="transition-transform group-hover:translate-x-1">
+            →
+          </span>
+        </button>
+      </div>
     </form>
   );
 }
