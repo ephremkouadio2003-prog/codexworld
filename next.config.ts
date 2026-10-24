@@ -46,6 +46,10 @@ const nextConfig: NextConfig = {
   poweredByHeader: false,
   cacheComponents: true,
   partialPrefetching: true,
+  experimental: {
+    // Mise à jour de sécurité appliquée via `next upgrade --agent=security`.
+    agentUpgrade: "security",
+  },
   turbopack: {
     rules: {
       "*.css": {
