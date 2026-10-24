@@ -11,10 +11,8 @@ export const site = {
   // TODO: remplacer par l'adresse de contact réelle de l'agence.
   email: "contact@codexworld.site",
   socials: [
-    // TODO: renseigner les vrais liens.
-    { label: "Instagram", href: "#" },
-    { label: "LinkedIn", href: "#" },
-    { label: "GitHub", href: "#" },
+    { label: "TikTok", href: "https://www.tiktok.com/@codexworld__" },
+    // TODO: renseigner les autres réseaux quand ils existent.
   ],
 }
 

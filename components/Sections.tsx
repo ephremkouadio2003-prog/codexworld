@@ -327,7 +327,12 @@ export function Footer() {
             <ul className="flex flex-wrap items-center gap-6">
               {site.socials.map((s) => (
                 <li key={s.label}>
-                  <a href={s.href} className="font-extrabold uppercase hover:text-lime">
+                  <a
+                    href={s.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="font-extrabold uppercase hover:text-lime"
+                  >
                     {s.label}
                   </a>
                 </li>
