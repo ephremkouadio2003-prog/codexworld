@@ -31,6 +31,5 @@ Pour recevoir les messages directement par e-mail :
 
 ## À compléter
 
-- Mentions légales : les champs `[entre crochets]` de `legal` dans `content/site.ts` (raison sociale, RCCM, adresse, téléphone…). Un rappel s'affiche sur la page tant qu'il en reste.
 - Liens réseaux sociaux (`site.socials` dans `content/site.ts`)
 - Identifiant Formspree (voir ci-dessus)

@@ -21,10 +21,6 @@ const SECTIONS = [
 ];
 
 const domain = site.url.replace(/^https?:\/\//, "");
-// Tant que des champs « [à compléter] » subsistent dans content/site.ts, un
-// rappel s'affiche en haut de page.
-const incomplete = JSON.stringify(legal).includes("[");
-
 function Mail() {
   return (
     <a href={`mailto:${site.email}`} className="font-semibold text-violet underline decoration-lime underline-offset-4">
@@ -90,11 +86,6 @@ export default function MentionsLegales() {
                 électroniques, voici les informations relatives à l&apos;éditeur et à l&apos;hébergeur du site {domain},
                 ainsi que notre politique de confidentialité.
               </p>
-              {incomplete && (
-                <p className="mt-6 inline-block rounded-2xl bg-lime px-4 py-2 text-sm font-bold text-ink">
-                  À compléter : remplacez chaque [champ entre crochets] dans content/site.ts avant la mise en ligne.
-                </p>
-              )}
             </div>
           </div>
         </section>
@@ -121,14 +112,18 @@ export default function MentionsLegales() {
               <Facts
                 rows={[
                   ["Nom commercial", company.tradeName],
-                  ["Raison sociale", company.legalName],
-                  ["Forme juridique", company.legalForm],
-                  ["Capital social", company.capital],
                   ["Siège social", company.address],
-                  ["RCCM", company.rccm],
-                  ["Compte contribuable", company.taxId],
                   ["E-mail", <Mail key="mail" />],
-                  ["Téléphone", company.phone],
+                  [
+                    "Téléphone",
+                    <span key="tel" className="grid gap-1">
+                      {company.phones.map((n) => (
+                        <a key={n} href={`tel:${n.replace(/\s/g, "")}`} className="hover:text-violet">
+                          {n}
+                        </a>
+                      ))}
+                    </span>,
+                  ],
                 ]}
               />
               <p>
@@ -185,7 +180,7 @@ export default function MentionsLegales() {
               </p>
               <h3>Responsable du traitement</h3>
               <p>
-                {company.legalName} ({company.tradeName}), {company.address}, joignable à <Mail />.
+                {company.tradeName}, {company.address}, joignable à <Mail />.
               </p>
               <h3>Données collectées et finalités</h3>
               <p>

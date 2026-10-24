@@ -272,18 +272,12 @@ export const budgets = [
 
 /* -------------------------------------------------------- mentions légales */
 
-// TODO: compléter les champs entre crochets avant la mise en ligne.
 export const legal = {
   updatedAt: "24 octobre 2026",
   company: {
     tradeName: site.name,
-    legalName: "[Raison sociale]",
-    legalForm: "[SARL / SARLU / Entreprise individuelle]",
-    capital: "[Montant] FCFA",
-    address: "[Adresse], Abidjan, Côte d'Ivoire",
-    rccm: "[Numéro RCCM]",
-    taxId: "[Numéro de compte contribuable]",
-    phone: "[+225 00 00 00 00 00]",
+    address: "Abidjan, Côte d'Ivoire",
+    phones: ["+225 07 07 11 48 18", "+33 7 75 76 35 79", "+33 7 59 53 57 85"],
     parent: "Peace Agency",
   },
   publisher: { name: "Ephrem Kouadio", role: "co-fondateur" },
