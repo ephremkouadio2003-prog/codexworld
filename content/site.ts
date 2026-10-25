@@ -77,15 +77,17 @@ export const projects: {
   color: "violet" | "lime" | "ink" | "paper";
   image?: string;
   href?: string;
+  /** Projet sous embargo : cadenas, aucune information ni lien affichés. */
+  locked?: boolean;
 }[] = [
   {
-    title: "ISITRAFIC",
-    category: "Mobilité & Transport",
+    title: "Projet en cours",
+    category: "Confidentiel",
     year: "2026",
-    text: "Plateforme de covoiturage et réservation de bus en Côte d'Ivoire avec paiement Mobile Money et suivi en direct.",
+    text: "Projet sous embargo : on vous en dit plus au lancement.",
     color: "ink",
-    image: "/img/projets/isitrafic.png",
-    href: "https://isitrafic.com",
+    image: "/img/projets/confidentiel.svg",
+    locked: true,
   },
   {
     title: "Kwiyiah Style",
@@ -106,13 +108,13 @@ export const projects: {
     href: "https://succesprepa.com",
   },
   {
-    title: "People Connect Become",
-    category: "Média & Réseau",
+    title: "Projet en cours",
+    category: "Confidentiel",
     year: "2026",
-    text: "Média digital et réseau humain révélant les talents d'Afrique et de la diaspora via portraits éditoriaux et vidéos.",
+    text: "Projet sous embargo : on vous en dit plus au lancement.",
     color: "paper",
-    image: "/img/projets/pcb.jpg",
-    href: "https://www.peopleconnectbecome.com",
+    image: "/img/projets/confidentiel.svg",
+    locked: true,
   },
   {
     title: "BFG Moment",

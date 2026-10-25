@@ -34,10 +34,6 @@ const DISC_PALETTES: [string, string, string][] = [
 ];
 
 const REVIEWS_BY_PROJECT: Record<string, { quote1: string; quote2: string }> = {
-  ISITRAFIC: {
-    quote1: "Covoiturage et réservation de bus en temps réel avec Mobile Money.",
-    quote2: "Fluidité des trajets et suivi temps réel à travers la Côte d'Ivoire.",
-  },
   "Kwiyiah Style": {
     quote1: "Maison de création d'exception entre Abidjan et Paris.",
     quote2: "Robes de gala sur-mesure et catalogue digital haute définition.",
@@ -45,10 +41,6 @@ const REVIEWS_BY_PROJECT: Record<string, { quote1: string; quote2: string }> = {
   SuccessPrepa: {
     quote1: "Préparation d'élite aux concours des grandes écoles INP-HB et ESATIC.",
     quote2: "Simulateur intelligent et mentorat sur-mesure pour les candidats.",
-  },
-  "People Connect Become": {
-    quote1: "Révéler les bâtisseurs et créateurs d'Afrique et de la diaspora.",
-    quote2: "Portraits éditoriaux immersifs et documentaires inspirants.",
   },
   "BFG Moment": {
     quote1: "Studio visuel haut de gamme et captation drone 4K.",
@@ -68,8 +60,15 @@ const REVIEWS_BY_PROJECT: Record<string, { quote1: string; quote2: string }> = {
   },
 };
 
+const LOCKED_REVIEWS = {
+  quote1: "Projet en cours de développement, sous embargo.",
+  quote2: "Rendez-vous au lancement pour la révélation.",
+};
+
 const DISC_ITEMS: DiscCascadeItem[] = projects.map((p, idx) => {
-  const reviews = REVIEWS_BY_PROJECT[p.title] ?? {
+  const reviews = p.locked
+    ? LOCKED_REVIEWS
+    : REVIEWS_BY_PROJECT[p.title] ?? {
     quote1: p.text,
     quote2: `${p.category} — développé par Codexworld.`,
   };
@@ -77,7 +76,7 @@ const DISC_ITEMS: DiscCascadeItem[] = projects.map((p, idx) => {
   return {
     title: p.title,
     src: p.image,
-    alt: `Projet ${p.title} - ${p.category}`,
+    alt: p.locked ? "Projet confidentiel en cours, cadenas" : `Projet ${p.title} - ${p.category}`,
     label: p.title,
     labelStyle: "arc",
     pattern: DISC_PATTERNS[idx % DISC_PATTERNS.length],
@@ -86,7 +85,7 @@ const DISC_ITEMS: DiscCascadeItem[] = projects.map((p, idx) => {
       { label: "Domaine", value: p.category },
       { label: "Année", value: p.year },
       { label: "Studio", value: "Codexworld" },
-      { label: "Statut", value: p.href ? "En ligne" : "Production" },
+      { label: "Statut", value: p.locked ? "Confidentiel" : p.href ? "En ligne" : "Production" },
     ],
     reviews: [
       {
@@ -101,7 +100,7 @@ const DISC_ITEMS: DiscCascadeItem[] = projects.map((p, idx) => {
       },
     ],
     fine: `${p.title} · ${p.category} · CODEXWORLD ARCHIVE · ${p.year}`,
-    href: p.href,
+    href: p.locked ? undefined : p.href,
   };
 });
 

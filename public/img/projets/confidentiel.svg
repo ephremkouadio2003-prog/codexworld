@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" role="img" aria-label="Projet confidentiel en cours">
+  <defs>
+    <radialGradient id="g" cx="50%" cy="45%" r="60%">
+      <stop offset="0" stop-color="#2a2540"/>
+      <stop offset="1" stop-color="#141218"/>
+    </radialGradient>
+  </defs>
+  <circle cx="300" cy="300" r="300" fill="url(#g)"/>
+  <circle cx="300" cy="300" r="236" fill="none" stroke="#c8f03d" stroke-width="3" stroke-dasharray="6 14" stroke-linecap="round" opacity=".55"/>
+  <!-- cadenas -->
+  <g transform="translate(300 292)">
+    <path d="M-62 -22 v-34 a62 62 0 0 1 124 0 v34" fill="none" stroke="#c8f03d" stroke-width="22" stroke-linecap="round"/>
+    <rect x="-92" y="-22" width="184" height="140" rx="30" fill="#c8f03d"/>
+    <circle cx="0" cy="36" r="18" fill="#141218"/>
+    <rect x="-9" y="40" width="18" height="40" rx="9" fill="#141218"/>
+  </g>
+  <text x="300" y="486" text-anchor="middle" font-family="Archivo Black, Arial Black, Helvetica, sans-serif" font-weight="900" font-size="34" letter-spacing="4" fill="#efeee9">PROJET EN COURS</text>
+  <text x="300" y="520" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-weight="700" font-size="16" letter-spacing="5" fill="#c8f03d" opacity=".85">CONFIDENTIEL</text>
+</svg>
