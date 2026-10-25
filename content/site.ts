@@ -86,7 +86,7 @@ export const projects: {
     year: "2026",
     text: "Projet sous embargo : on vous en dit plus au lancement.",
     color: "ink",
-    image: "/img/projets/confidentiel.svg",
+    image: "/img/projets/en-cours-1.webp",
     locked: true,
   },
   {
@@ -113,7 +113,7 @@ export const projects: {
     year: "2026",
     text: "Projet sous embargo : on vous en dit plus au lancement.",
     color: "paper",
-    image: "/img/projets/confidentiel.svg",
+    image: "/img/projets/en-cours-2.webp",
     locked: true,
   },
   {
