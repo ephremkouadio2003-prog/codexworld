@@ -23,13 +23,21 @@ npm run build   # build de production
 
 ## Formulaire de contact
 
-Sans configuration, le bouton « Envoyer » ouvre la messagerie du visiteur avec le message pré-rempli.
-Pour recevoir les messages directement par e-mail :
+Le formulaire envoie un e-mail via [Resend](https://resend.com) depuis la route `app/api/contact/route.ts`.
+Variables d'environnement à définir sur Vercel (Settings → Environment Variables) :
 
-1. Créer un formulaire gratuit sur https://formspree.io (adresse du type `https://formspree.io/f/abcdwxyz`).
-2. Définir la variable d'environnement `NEXT_PUBLIC_FORMSPREE_ID=abcdwxyz` (sur Vercel : Settings → Environment Variables).
+| Variable         | Valeur (phase temporaire)                              |
+| ---------------- | ------------------------------------------------------ |
+| `RESEND_API_KEY` | clé API créée sur resend.com (compte ephr.kouadio@gmail.com) |
+| `CONTACT_TO`     | `ephr.kouadio@gmail.com`                               |
+| `CONTACT_FROM`   | `Codexworld <onboarding@resend.dev>`                   |
+
+Quand le domaine sera actif : vérifier `codexworld.site` dans Resend (Domains), puis passer
+`CONTACT_FROM` à `Codexworld <contact@codexworld.site>` et `CONTACT_TO` à l'adresse de l'agence.
+
+Sans `RESEND_API_KEY`, le bouton « Envoyer » ouvre la messagerie du visiteur avec le message pré-rempli.
 
 ## À compléter
 
 - Liens réseaux sociaux (`site.socials` dans `content/site.ts`)
-- Identifiant Formspree (voir ci-dessus)
+- Clé Resend (voir ci-dessus)

@@ -4,11 +4,9 @@ import Link from "next/link";
 import { useState } from "react";
 import { budgets, projectTypes, site } from "@/content/site";
 
-// Envoi du formulaire :
-// - si NEXT_PUBLIC_FORMSPREE_ID est défini (ex. « abcdwxyz », depuis https://formspree.io),
-//   le message est envoyé à Formspree et arrive directement par e-mail ;
-// - sinon, le formulaire ouvre la messagerie du visiteur avec le message pré-rempli.
-const FORMSPREE_ID = process.env.NEXT_PUBLIC_FORMSPREE_ID;
+// Envoi du formulaire : POST vers /api/contact (e-mail via Resend, voir
+// app/api/contact/route.ts). Si la route n'est pas configurée (503), on ouvre
+// la messagerie du visiteur avec le message pré-rempli.
 
 type Status = { kind: "ok" | "err"; text: string } | null;
 
@@ -45,7 +43,7 @@ export default function ContactForm() {
     const budget = String(data.get("budget") ?? "") || "non précisé";
     const message = String(data.get("message") ?? "");
 
-    if (!FORMSPREE_ID) {
+    const openMailClient = () => {
       const subject = `Nouveau projet : ${type} — ${name}`;
       const body = `Nom : ${name}\nE-mail : ${email}\nType de projet : ${type}\nBudget : ${budget}\n\n${message}`;
       window.location.href = `mailto:${site.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
@@ -53,17 +51,29 @@ export default function ContactForm() {
         kind: "ok",
         text: `Votre messagerie va s'ouvrir avec votre message pré-rempli. Sinon, écrivez-nous à ${site.email}.`,
       });
-      return;
-    }
+    };
 
     setSending(true);
     try {
-      const res = await fetch(`https://formspree.io/f/${FORMSPREE_ID}`, {
+      const res = await fetch("/api/contact", {
         method: "POST",
-        body: data,
-        headers: { Accept: "application/json" },
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify({
+          nom: name,
+          email,
+          type_de_projet: type,
+          budget: String(data.get("budget") ?? ""),
+          message,
+          consentement: data.get("consentement") === "on",
+          _gotcha: String(data.get("_gotcha") ?? ""),
+        }),
       });
-      if (!res.ok) throw new Error(String(res.status));
+      if (res.status === 503) {
+        openMailClient();
+        return;
+      }
+      const json = (await res.json().catch(() => ({}))) as { ok?: boolean; error?: string };
+      if (!res.ok || !json.ok) throw new Error(json.error ?? String(res.status));
       form.reset();
       setStatus({ kind: "ok", text: "Merci ! Votre message est bien parti. On vous répond très vite." });
     } catch {
@@ -75,7 +85,6 @@ export default function ContactForm() {
 
   return (
     <form onSubmit={onSubmit} noValidate className="grid gap-6">
-      <input type="hidden" name="_subject" value={`Nouveau projet via ${site.url.replace(/^https?:\/\//, "")}`} />
       {/* Honeypot : masqué aux humains, ignoré des lecteurs d'écran, sans tabindex. */}
       <div aria-hidden="true" style={{ position: "absolute", left: "-9999px", width: 1, height: 1, overflow: "hidden" }}>
         <label>

@@ -287,5 +287,5 @@ export const legal = {
     website: "https://vercel.com",
   },
   dataRetention: "3 ans",
-  formProvider: "Formspree",
+  formProvider: "Resend",
 }

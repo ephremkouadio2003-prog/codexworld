@@ -5,15 +5,15 @@ import type { NextConfig } from "next";
 // nécessaire tant que Next.js injecte des scripts/styles inline sans nonce ;
 // le site étant statique, le risque XSS résiduel est faible. On autorise
 // vercel.live (barre de feedback) et son websocket Pusher pour ne pas casser
-// les déploiements de prévisualisation, et formspree.io pour l'envoi du
-// formulaire de contact (fetch).
+// les déploiements de prévisualisation. Le formulaire de contact passe par
+// /api/contact (même origine).
 const csp = [
   "default-src 'self'",
   "script-src 'self' 'unsafe-inline' https://vercel.live",
   "style-src 'self' 'unsafe-inline'",
   "img-src 'self' data: blob: https:",
   "font-src 'self' data:",
-  "connect-src 'self' https://formspree.io https://vercel.live wss://ws-us3.pusher.com",
+  "connect-src 'self' https://vercel.live wss://ws-us3.pusher.com",
   "frame-src 'self' https://vercel.live",
   "frame-ancestors 'self'",
   "base-uri 'self'",
