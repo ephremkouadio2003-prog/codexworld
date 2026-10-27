@@ -27,6 +27,7 @@ export const site = {
   parent: "Peace Agency",
   socials: [
     { label: "TikTok", href: "https://www.tiktok.com/@codexworld__" },
+    { label: "Instagram", href: "https://www.instagram.com/codexworld__/" },
     // TODO: renseigner les autres réseaux quand ils existent.
   ],
 }

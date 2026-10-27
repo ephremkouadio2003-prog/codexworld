@@ -17,6 +17,8 @@ const TO = process.env.CONTACT_TO ?? "ephr.kouadio@gmail.com";
 const FROM = process.env.CONTACT_FROM ?? `${site.name} <onboarding@resend.dev>`;
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+const MAX_BODY_BYTES = 32 * 1024;
+const JSON_CONTENT_TYPE_RE = /^application\/json(?:\s*;\s*charset\s*=\s*(?:utf-8|"utf-8"))?$/i;
 
 function clean(v: unknown, max: number) {
   return String(v ?? "")
@@ -26,13 +28,44 @@ function clean(v: unknown, max: number) {
 }
 
 export async function POST(req: Request) {
+  if (!JSON_CONTENT_TYPE_RE.test(req.headers.get("content-type")?.trim() ?? "")) {
+    return Response.json({ ok: false, error: "Type de contenu invalide." }, { status: 415 });
+  }
+
   if (!process.env.RESEND_API_KEY) {
     return Response.json({ ok: false, fallback: true }, { status: 503 });
   }
 
   let body: Record<string, unknown>;
   try {
-    body = await req.json();
+    const reader = req.body?.getReader();
+    if (!reader) {
+      return Response.json({ ok: false, error: "Requête invalide." }, { status: 400 });
+    }
+
+    // Lire au plus 32 Kio, même si Content-Length est absent ou mensonger.
+    const bytes = new Uint8Array(MAX_BODY_BYTES);
+    let length = 0;
+    try {
+      while (true) {
+        const { done, value } = await reader.read();
+        if (done) break;
+        if (value.byteLength > MAX_BODY_BYTES - length) {
+          void reader.cancel().catch(() => {});
+          return Response.json({ ok: false, error: "Requête trop volumineuse." }, { status: 413 });
+        }
+        bytes.set(value, length);
+        length += value.byteLength;
+      }
+    } finally {
+      reader.releaseLock();
+    }
+
+    const parsed: unknown = JSON.parse(new TextDecoder("utf-8", { fatal: true }).decode(bytes.subarray(0, length)));
+    if (parsed === null || typeof parsed !== "object" || Array.isArray(parsed)) {
+      return Response.json({ ok: false, error: "Requête invalide." }, { status: 400 });
+    }
+    body = parsed as Record<string, unknown>;
   } catch {
     return Response.json({ ok: false, error: "Requête invalide." }, { status: 400 });
   }

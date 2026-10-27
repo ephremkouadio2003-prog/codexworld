@@ -94,7 +94,7 @@ export const servicePages: ServicePage[] = [
       },
       {
         title: "Combien coûte un site internet à Abidjan ?",
-        text: "Le prix dépend du nombre de pages, du design et des fonctionnalités. Une landing page ou un site vitrine simple démarre sous 500 000 FCFA ; un site professionnel complet avec design sur mesure, blog et réservation se situe généralement entre 500 000 et 1 500 000 FCFA. Nous envoyons un devis clair et détaillé après un premier échange, sans engagement. Pour les clients hors Côte d'Ivoire, nous facturons en euros ou en dollars.",
+        text: "Le prix dépend du nombre de pages, du design et des fonctionnalités. L'offre Starter est à 75 000 FCFA ; un site professionnel complet avec design sur mesure, blog et réservation se situe généralement entre 500 000 et 1 500 000 FCFA. Nous envoyons un devis clair et détaillé après un premier échange, sans engagement. Pour les clients hors Côte d'Ivoire, nous facturons en euros ou en dollars.",
       },
     ],
     faq: [
@@ -522,7 +522,7 @@ export const zonePages: ZonePage[] = [
       },
       {
         q: "Quel est le prix d'un site internet à Abidjan ?",
-        a: "Un site vitrine démarre sous 500 000 FCFA, un site professionnel complet entre 500 000 et 1 500 000 FCFA, une boutique en ligne ou une application mobile à partir de 1 500 000 FCFA. Chaque devis est établi après un échange sur votre projet.",
+        a: "L'offre Starter est à 75 000 FCFA. Un site professionnel complet se situe entre 500 000 et 1 500 000 FCFA, une boutique en ligne ou une application mobile à partir de 1 500 000 FCFA. Chaque devis est établi après un échange sur votre projet.",
       },
       {
         q: "Acceptez-vous les paiements en plusieurs fois ?",
@@ -699,11 +699,11 @@ export const homeFaq: Faq[] = [
   },
   {
     q: "Combien coûte la création d'un site internet ou d'une application ?",
-    a: "Un site vitrine ou une landing page démarre sous 500 000 FCFA. Un site professionnel complet se situe entre 500 000 et 1 500 000 FCFA, une boutique en ligne ou une application mobile à partir de 1 500 000 FCFA, une plateforme SaaS à partir de 4 000 000 FCFA. Nous envoyons un devis détaillé après un premier échange gratuit.",
+    a: "L'offre Starter est à 75 000 FCFA. Un site professionnel complet se situe entre 500 000 et 1 500 000 FCFA, une boutique en ligne ou une application mobile à partir de 1 500 000 FCFA, une plateforme SaaS à partir de 4 000 000 FCFA. Nous envoyons un devis détaillé après un premier échange gratuit.",
   },
   {
     q: "Travaillez-vous uniquement à Abidjan ?",
-    a: "Non. Nous sommes basés à Abidjan, mais nous accompagnons des clients dans toute la Côte d'Ivoire, en Afrique francophone (Sénégal, Cameroun, Bénin, Togo, Mali, Burkina Faso, Gabon, RDC…) ainsi qu'en France, en Europe et au Canada. Tout se fait à distance, en français ou en anglais.",
+    a: "Non. Nous sommes basés à Abidjan, où nous pouvons nous déplacer chez nos clients. Nous accompagnons aussi des clients dans toute la Côte d'Ivoire, en Afrique francophone (Sénégal, Cameroun, Bénin, Togo, Mali, Burkina Faso, Gabon, RDC…) ainsi qu'en France, en Europe et au Canada. Pour ces projets, nous échangeons à distance, en français ou en anglais.",
   },
   {
     q: "Intégrez-vous le paiement Mobile Money (Orange Money, MTN MoMo, Wave) ?",
