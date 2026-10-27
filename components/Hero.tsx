@@ -9,7 +9,7 @@ export default function Hero() {
         height="calc(100svh - var(--nav-h))"
         minHeight="520px"
         index="CW/26"
-        discipline="Agence digitale"
+        discipline="Agence web · Abidjan"
         tagline="On code vos idées"
         collection={["Projets", "Sélection"]}
         reel={["Portfolio © 2026", "Web · Mobile · SaaS"]}
@@ -39,7 +39,7 @@ export default function Hero() {
         accent="#c8f03d"
         paper="#efeee9"
         ink="#141218"
-        srTitle="Codexworld, agence de développement de sites web, applications mobiles et plateformes SaaS"
+        srTitle="Codexworld, agence web à Abidjan (Côte d'Ivoire) : création de sites internet, applications mobiles et plateformes SaaS pour l'Afrique et l'international"
       />
     </section>
   );

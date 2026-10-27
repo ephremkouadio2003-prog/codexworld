@@ -20,24 +20,56 @@ export const viewport: Viewport = {
   initialScale: 1,
 };
 
+// Titre de l'accueil : mot-clé principal + ville, sous 70 caractères.
+const homeTitle = `${site.name} · Agence web à Abidjan — Sites internet, applis & SaaS`;
+
+// Code de vérification Google Search Console (balise <meta name="google-site-verification">).
+// À définir sur Vercel : NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION=xxxx (voir README).
+const googleVerification = process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION;
+const bingVerification = process.env.NEXT_PUBLIC_BING_SITE_VERIFICATION;
+
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
-  title: `${site.name} — ${site.tagline}`,
+  title: {
+    default: homeTitle,
+    // Les pages enfants (services, zones, mentions légales) reçoivent le suffixe.
+    template: `%s | ${site.name}`,
+  },
   description: site.description,
-  alternates: { canonical: "/" },
+  applicationName: site.name,
+  alternates: {
+    canonical: "/",
+    languages: {
+      // Site en français, destiné à la Côte d'Ivoire, à l'Afrique francophone
+      // et à l'international : une seule version, déclarée comme défaut.
+      fr: "/",
+      "fr-CI": "/",
+      "x-default": "/",
+    },
+  },
   keywords: [
-    "agence de développement",
     "agence web Abidjan",
     "agence web Côte d'Ivoire",
-    "création de site web",
-    "application mobile React Native",
-    "plateforme SaaS",
-    "e-commerce Mobile Money",
+    "agence digitale Abidjan",
+    "création site internet Abidjan",
+    "création site web Côte d'Ivoire",
+    "développement application mobile Abidjan",
+    "développement application mobile Afrique",
+    "agence développement web Afrique francophone",
+    "site e-commerce Mobile Money",
+    "plateforme SaaS Afrique",
+    "développeur Next.js React Native Abidjan",
+    "agence web francophone international",
     "UI/UX design",
-    "Peace Agency filiale",
+    "Peace Agency",
     "Codexworld",
   ],
-  authors: founders.map((f) => ({ name: f.name })),
+  authors: founders.map((f) => ({ name: f.name, url: site.url })),
+  creator: site.name,
+  publisher: site.name,
+  category: "technology",
+  classification: "Agence de développement web et mobile",
+  formatDetection: { telephone: true, email: true, address: true },
   robots: {
     index: true,
     follow: true,
@@ -52,15 +84,30 @@ export const metadata: Metadata = {
   openGraph: {
     siteName: site.name,
     url: "/",
-    title: `${site.name} — ${site.tagline}`,
+    title: homeTitle,
     description: site.description,
     type: "website",
     locale: "fr_FR",
+    alternateLocale: ["fr_CI", "fr_SN", "fr_CM", "fr_BE", "fr_CA", "en_US"],
+    countryName: site.address.country,
+    emails: [site.email],
+    phoneNumbers: [site.phone],
   },
   twitter: {
     card: "summary_large_image",
-    title: `${site.name} — ${site.tagline}`,
+    title: homeTitle,
     description: site.description,
+  },
+  verification: {
+    ...(googleVerification ? { google: googleVerification } : {}),
+    ...(bingVerification ? { other: { "msvalidate.01": bingVerification } } : {}),
+  },
+  other: {
+    // Balises de géolocalisation (référencement local).
+    "geo.region": `${site.address.countryCode}-AB`,
+    "geo.placename": site.address.locality,
+    "geo.position": `${site.address.lat};${site.address.lng}`,
+    ICBM: `${site.address.lat}, ${site.address.lng}`,
   },
 };
 

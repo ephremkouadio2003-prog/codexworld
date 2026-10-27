@@ -3,13 +3,28 @@
 
 export const site = {
   name: "Codexworld",
-  tagline: "Agence de développement web & mobile",
+  tagline: "Agence de développement web & mobile à Abidjan",
   // TODO: remplacer par le vrai nom de domaine (sans / final).
   url: "https://codexworld.site",
   description:
-    "Codexworld conçoit et développe des sites web, applications mobiles et plateformes SaaS sur mesure — du design au déploiement.",
+    "Agence de développement web et mobile à Abidjan (Côte d'Ivoire) : création de site internet, application mobile iOS/Android, e-commerce Mobile Money et plateforme SaaS sur mesure, pour l'Afrique et l'international.",
   // TODO: remplacer par l'adresse de contact réelle de l'agence.
   email: "contact@codexworld.site",
+  phone: "+225 07 07 11 48 18",
+  // Localisation (données structurées, balises geo, pages zones).
+  address: {
+    locality: "Abidjan",
+    region: "Abidjan",
+    country: "Côte d'Ivoire",
+    countryCode: "CI",
+    // Coordonnées approximatives d'Abidjan (Plateau).
+    lat: 5.3364,
+    lng: -4.0267,
+  },
+  // Zones desservies, du plus local au plus large.
+  areaServed: ["Abidjan", "Côte d'Ivoire", "Afrique francophone", "France", "Europe", "Canada", "International"],
+  foundingYear: "2026",
+  parent: "Peace Agency",
   socials: [
     { label: "TikTok", href: "https://www.tiktok.com/@codexworld__" },
     // TODO: renseigner les autres réseaux quand ils existent.

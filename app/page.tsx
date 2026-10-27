@@ -5,37 +5,21 @@ import {
   Contact,
   CrowdCTA,
   Footer,
+  HomeFaq,
   Marquee,
   Process,
   Projects,
   Services,
   Team,
 } from "@/components/Sections";
-import { founders, projects, site } from "@/content/site";
-
-// Fiche « organisation » lue par Google (nom, logo, fondateurs, réalisations).
-const jsonLd = {
-  "@context": "https://schema.org",
-  "@type": "Organization",
-  name: site.name,
-  url: site.url,
-  logo: `${site.url}/img/logo-mark.png`,
-  description: site.description,
-  email: site.email,
-  founder: founders.map((f) => ({ "@type": "Person", name: f.name, jobTitle: f.role })),
-  sameAs: site.socials.map((s) => s.href).filter((h) => h.startsWith("http")),
-  subjectOf: projects
-    .filter((p) => p.href)
-    .map((p) => ({ "@type": "CreativeWork", name: p.title, url: p.href, genre: p.category })),
-};
+import { homeFaq } from "@/content/seo";
+import { faqJsonLd, JsonLd, organizationJsonLd, websiteJsonLd } from "@/lib/seo";
 
 export default function Home() {
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c") }}
-      />
+      {/* Fiche « agence » (ProfessionalService), site web et FAQ lus par Google. */}
+      <JsonLd data={[organizationJsonLd(), websiteJsonLd(), faqJsonLd(homeFaq)]} />
       <Header />
       <main>
         <Hero />
@@ -44,6 +28,7 @@ export default function Home() {
         <Projects />
         <Process />
         <Team />
+        <HomeFaq />
         <CrowdCTA />
         <Contact />
       </main>

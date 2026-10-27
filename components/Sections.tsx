@@ -2,10 +2,12 @@ import Image from "next/image";
 import Link from "next/link";
 import ContactForm from "@/components/ContactForm";
 import CrowdCanvas from "@/components/CrowdCanvas";
+import Faq from "@/components/Faq";
 import ProcessOrbit from "@/components/ProcessOrbit";
 import TailwindImageAccordion from "@/components/ui/tailwind-image-accordion";
 import ProjectsCarousel from "@/components/ProjectsCarousel";
-import { services, site, stack } from "@/content/site";
+import { homeFaq, servicePages, zonePages } from "@/content/seo";
+import { projects, services, site, stack } from "@/content/site";
 
 /* ---------------------------------------------------------------- helpers */
 
@@ -73,13 +75,15 @@ export function Services() {
             </Title>
           </div>
           <p data-reveal className="max-w-sm text-lg leading-relaxed text-ink/70">
-            Six façons de donner vie à votre projet. Chaque fois du sur mesure, pensé pour vos utilisateurs et
-            construit pour durer.
+            Six façons de donner vie à votre projet, à Abidjan comme à l&apos;international. Chaque fois du sur
+            mesure, pensé pour vos utilisateurs et construit pour durer.
           </p>
         </div>
 
         <ul className="grid gap-px overflow-hidden rounded-[2rem] border-2 border-ink bg-ink sm:grid-cols-2 lg:grid-cols-3">
-          {services.map((s, i) => (
+          {services.map((s, i) => {
+            const page = servicePages[i];
+            return (
             <li
               key={s.title}
               data-reveal
@@ -97,7 +101,15 @@ export function Services() {
                 className="h-auto w-full max-w-[320px] transition-transform duration-500 ease-out group-hover:-translate-y-1 group-hover:rotate-[-1.5deg]"
               />
               <div className="grid gap-4">
-                <h3 className="font-display text-2xl uppercase tracking-tight md:text-3xl">{s.title}</h3>
+                <h3 className="font-display text-2xl uppercase tracking-tight md:text-3xl">
+                  {page ? (
+                    <Link href={`/services/${page.slug}`} className="after:absolute after:inset-0">
+                      {s.title}
+                    </Link>
+                  ) : (
+                    s.title
+                  )}
+                </h3>
                 <p className="leading-relaxed text-ink/70">{s.text}</p>
                 <div className="flex flex-wrap gap-2">
                   {s.tags.map((t) => (
@@ -109,10 +121,28 @@ export function Services() {
                     </span>
                   ))}
                 </div>
+                {page && (
+                  <span className="text-sm font-extrabold uppercase text-violet">En savoir plus →</span>
+                )}
               </div>
             </li>
-          ))}
+            );
+          })}
         </ul>
+        <p data-reveal className="mt-8 text-center text-sm font-bold text-ink/60">
+          <Link href="/services" className="underline decoration-lime underline-offset-4 hover:text-violet">
+            Tous nos services en détail
+          </Link>
+          <span className="mx-2 opacity-40">•</span>
+          {zonePages.map((z, i) => (
+            <span key={z.slug}>
+              {i > 0 && <span className="mx-2 opacity-40">•</span>}
+              <Link href={`/agence-web/${z.slug}`} className="underline decoration-lime underline-offset-4 hover:text-violet">
+                {z.name}
+              </Link>
+            </span>
+          ))}
+        </p>
       </div>
     </section>
   );
@@ -132,7 +162,8 @@ export function Projects() {
             </Title>
           </div>
           <p data-reveal className="max-w-md text-lg leading-relaxed text-ink/70">
-            Une sélection de nos réalisations : plateformes web, applications mobiles et plateformes SaaS développées sur mesure.
+            Une sélection de nos réalisations pour des clients à Abidjan, en Côte d&apos;Ivoire et en Europe :
+            sites web, boutiques en ligne, applications mobiles et plateformes SaaS développés sur mesure.
           </p>
         </div>
 
@@ -142,6 +173,24 @@ export function Projects() {
         >
           <ProjectsCarousel />
         </div>
+
+        <ul aria-label="Liste des projets" className="mt-8 flex flex-wrap gap-x-6 gap-y-2 text-sm font-bold">
+          {projects
+            .filter((p) => p.href && !p.locked)
+            .map((p) => (
+              <li key={p.title}>
+                <a
+                  href={p.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="underline decoration-lime underline-offset-4 hover:text-violet"
+                >
+                  {p.title}
+                </a>
+                <span className="text-ink/50"> · {p.category}</span>
+              </li>
+            ))}
+        </ul>
       </div>
     </section>
   );
@@ -237,7 +286,8 @@ export function CrowdCTA() {
         d&apos;être <span className="bg-lime px-3">vue</span> par tous.
       </h2>
       <p data-reveal className="relative z-10 mt-6 max-w-xl text-lg text-ink/70">
-        Startups, commerces, associations, indépendants : on crée des produits que les gens ont envie d&apos;utiliser.
+        Startups, commerces, associations, indépendants, à Abidjan, en Afrique et à l&apos;international : on crée
+        des produits que les gens ont envie d&apos;utiliser.
       </p>
       <div data-reveal className="relative z-10 mt-8 flex flex-wrap justify-center gap-3">
         <a
@@ -261,6 +311,39 @@ export function CrowdCTA() {
   );
 }
 
+/* -------------------------------------------------------------------- faq */
+
+export function HomeFaq() {
+  return (
+    <section id="faq" className="border-t-2 border-ink bg-white px-4 py-24 md:px-8 md:py-36">
+      <div className="mx-auto grid max-w-[1400px] gap-10 lg:grid-cols-[1fr_1.4fr] lg:gap-16">
+        <div className="grid content-start gap-6">
+          <Eyebrow index="05">FAQ</Eyebrow>
+          <Title>
+            Vos questions,
+            <br />
+            <span className="text-violet">nos réponses.</span>
+          </Title>
+          <p data-reveal className="max-w-sm text-lg leading-relaxed text-ink/70">
+            Prix, délais, Mobile Money, zones d&apos;intervention : ce qu&apos;on nous demande le plus souvent avant
+            de démarrer un projet.
+          </p>
+          <Link
+            data-reveal
+            href="/services"
+            className="justify-self-start rounded-full border-2 border-ink bg-paper px-6 py-3 text-sm font-extrabold uppercase transition-colors hover:bg-lime"
+          >
+            Voir tous nos services
+          </Link>
+        </div>
+        <div data-reveal>
+          <Faq items={homeFaq} />
+        </div>
+      </div>
+    </section>
+  );
+}
+
 /* ---------------------------------------------------------------- contact */
 
 export function Contact() {
@@ -268,7 +351,7 @@ export function Contact() {
     <section id="contact" className="bg-ink px-4 py-24 text-paper md:px-8 md:py-36">
       <div className="mx-auto grid max-w-[1400px] gap-16 lg:grid-cols-[1fr_1.1fr]">
         <div className="grid content-start gap-8">
-          <Eyebrow index="05" dark>
+          <Eyebrow index="06" dark>
             Contact
           </Eyebrow>
           <Title>
@@ -315,7 +398,8 @@ export function Footer() {
             <Image src="/img/logo-mark-white.png" alt="" width={90} height={72} />
             <div>
               <p className="max-w-xs text-lg font-bold leading-snug">
-                Sites web, applications mobiles & plateformes sur mesure.
+                Sites web, applications mobiles & plateformes sur mesure, depuis Abidjan pour l&apos;Afrique et
+                l&apos;international.
               </p>
               <span className="mt-2 inline-flex items-center gap-2 rounded-full border border-paper/30 bg-white/10 px-3 py-1 text-xs font-extrabold uppercase tracking-wide text-paper">
                 <span className="h-1.5 w-1.5 rounded-full bg-lime animate-pulse" />
@@ -345,6 +429,62 @@ export function Footer() {
               height={1024}
               className="hidden w-24 md:block"
             />
+          </div>
+        </div>
+
+        <div className="mt-14 grid gap-10 border-t-2 border-paper/25 pt-10 sm:grid-cols-2 lg:grid-cols-4">
+          <nav aria-label="Services">
+            <h2 className="mb-4 text-xs font-extrabold uppercase tracking-wider text-paper/60">Services</h2>
+            <ul className="grid gap-2 text-sm font-bold">
+              {servicePages.map((p) => (
+                <li key={p.slug}>
+                  <Link href={`/services/${p.slug}`} className="hover:text-lime">
+                    {p.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </nav>
+          <nav aria-label="Zones d'intervention">
+            <h2 className="mb-4 text-xs font-extrabold uppercase tracking-wider text-paper/60">Agence web</h2>
+            <ul className="grid gap-2 text-sm font-bold">
+              {zonePages.map((z) => (
+                <li key={z.slug}>
+                  <Link href={`/agence-web/${z.slug}`} className="hover:text-lime">
+                    {z.name}
+                  </Link>
+                </li>
+              ))}
+              <li>
+                <Link href="/services" className="hover:text-lime">
+                  Tous les services
+                </Link>
+              </li>
+            </ul>
+          </nav>
+          <nav aria-label="Site">
+            <h2 className="mb-4 text-xs font-extrabold uppercase tracking-wider text-paper/60">Le site</h2>
+            <ul className="grid gap-2 text-sm font-bold">
+              <li><Link href="/#projets" className="hover:text-lime">Projets</Link></li>
+              <li><Link href="/#methode" className="hover:text-lime">Méthode</Link></li>
+              <li><Link href="/#equipe" className="hover:text-lime">Équipe</Link></li>
+              <li><Link href="/#faq" className="hover:text-lime">FAQ</Link></li>
+              <li><Link href="/#contact" className="hover:text-lime">Contact</Link></li>
+            </ul>
+          </nav>
+          <div>
+            <h2 className="mb-4 text-xs font-extrabold uppercase tracking-wider text-paper/60">Contact</h2>
+            <address className="grid gap-2 text-sm font-bold not-italic">
+              <span>
+                {site.address.locality}, {site.address.country}
+              </span>
+              <a href={`mailto:${site.email}`} className="hover:text-lime">
+                {site.email}
+              </a>
+              <a href={`tel:${site.phone.replace(/\s/g, "")}`} className="hover:text-lime">
+                {site.phone}
+              </a>
+            </address>
           </div>
         </div>
 

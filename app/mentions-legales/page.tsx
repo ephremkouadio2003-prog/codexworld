@@ -4,7 +4,7 @@ import { Footer } from "@/components/Sections";
 import { legal, site } from "@/content/site";
 
 export const metadata: Metadata = {
-  title: `Mentions légales — ${site.name}`,
+  title: "Mentions légales",
   description: `Mentions légales et politique de confidentialité du site ${site.url.replace(/^https?:\/\//, "")}, ${site.tagline.toLowerCase()}.`,
   alternates: { canonical: "/mentions-legales" },
 };
