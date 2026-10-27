@@ -1,15 +1,12 @@
 import { budgets, projectTypes, site } from "@/content/site";
+import { checkBotId } from "botid/server";
 
 // Envoi du formulaire de contact par e-mail via Resend (https://resend.com).
 //
 // Variables d'environnement (Vercel → Settings → Environment Variables) :
 // - RESEND_API_KEY : clé API Resend (obligatoire pour l'envoi réel).
-// - CONTACT_TO     : destinataire. Temporaire : l'adresse personnelle d'Ephrem,
-//                    à remplacer par contact@codexworld.site quand le domaine
-//                    sera actif et vérifié chez Resend.
-// - CONTACT_FROM   : expéditeur. Tant que le domaine n'est pas vérifié chez
-//                    Resend, seul « onboarding@resend.dev » est autorisé, et il
-//                    ne peut écrire qu'à l'adresse du compte Resend.
+// - CONTACT_TO     : destinataire des demandes de contact.
+// - CONTACT_FROM   : expéditeur vérifié sur codexworld.site.
 //
 // Sans RESEND_API_KEY, la route répond 503 et le formulaire bascule sur
 // l'ouverture de la messagerie du visiteur (mailto).
@@ -33,6 +30,17 @@ export async function POST(req: Request) {
   }
 
   if (!process.env.RESEND_API_KEY) {
+    return Response.json({ ok: false, fallback: true }, { status: 503 });
+  }
+
+  // BotID Basic valide le défi du navigateur à chaque envoi. Un échec du
+  // service ferme l'API sans envoyer d'e-mail ; le formulaire propose mailto.
+  try {
+    const verification = await checkBotId({ advancedOptions: { checkLevel: "basic" } });
+    if (verification.isBot) {
+      return Response.json({ ok: false, error: "Envoi non autorisé." }, { status: 403 });
+    }
+  } catch {
     return Response.json({ ok: false, fallback: true }, { status: 503 });
   }
 
@@ -114,12 +122,18 @@ export async function POST(req: Request) {
       }),
     });
     if (!res.ok) {
-      console.error("Resend", res.status, await res.text());
+      // Éviter de conserver dans les journaux une réponse fournisseur pouvant
+      // contenir les données personnelles du formulaire.
+      const requestId = res.headers.get("x-request-id");
+      console.error("Resend email request failed", {
+        status: res.status,
+        ...(requestId && /^[A-Za-z0-9_-]{1,128}$/.test(requestId) ? { requestId } : {}),
+      });
       return Response.json({ ok: false, error: "L'envoi a échoué." }, { status: 502 });
     }
     return Response.json({ ok: true });
-  } catch (err) {
-    console.error("Resend", err);
+  } catch {
+    console.error("Resend email request failed before an HTTP response");
     return Response.json({ ok: false, error: "L'envoi a échoué." }, { status: 502 });
   }
 }

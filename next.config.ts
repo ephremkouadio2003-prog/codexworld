@@ -1,21 +1,24 @@
 import type { NextConfig } from "next";
 
 // --- Sécurité : en-têtes HTTP ---------------------------------------------
-// Politique de sécurité du contenu (CSP). 'unsafe-inline' sur script/style est
-// nécessaire tant que Next.js injecte des scripts/styles inline sans nonce ;
-// le site étant statique, le risque XSS résiduel est faible. On autorise
-// vercel.live (barre de feedback) et son websocket Pusher pour ne pas casser
-// les déploiements de prévisualisation. Le formulaire de contact passe par
-// /api/contact (même origine).
+// Next.js injecte des scripts d'hydratation inline dans les pages statiques.
+// Un nonce imposerait un rendu dynamique et casserait le prerendering partiel :
+// on garde cette seule exception pour les éléments <script>, mais on interdit
+// les gestionnaires HTML inline et les URL javascript:. La barre Vercel et son
+// websocket ne sont autorisés que sur les déploiements de prévisualisation.
+const isVercelPreview = process.env.VERCEL_ENV === "preview";
+const isDevelopment = process.env.NODE_ENV === "development";
 const csp = [
   "default-src 'self'",
-  "script-src 'self' 'unsafe-inline' https://vercel.live",
-  "style-src 'self' 'unsafe-inline'",
-  "img-src 'self' data: blob: https:",
-  "font-src 'self' data:",
-  "connect-src 'self' https://vercel.live wss://ws-us3.pusher.com",
-  "frame-src 'self' https://vercel.live",
-  "frame-ancestors 'self'",
+  `script-src 'self' 'unsafe-inline'${isDevelopment ? " 'unsafe-eval'" : ""}${isVercelPreview ? " https://vercel.live" : ""}`,
+  "script-src-attr 'none'",
+  `style-src 'self' 'unsafe-inline'${isVercelPreview ? " https://vercel.live" : ""}`,
+  `img-src 'self' data:${isVercelPreview ? " blob: https://vercel.live https://vercel.com" : ""}`,
+  `font-src 'self'${isVercelPreview ? " https://vercel.live https://assets.vercel.com" : ""}`,
+  `connect-src 'self'${isVercelPreview ? " https://vercel.live wss://ws-us3.pusher.com" : ""}`,
+  `frame-src ${isVercelPreview ? "'self' https://vercel.live" : "'none'"}`,
+  `frame-ancestors ${isVercelPreview ? "'self'" : "'none'"}`,
+  "manifest-src 'self'",
   "base-uri 'self'",
   "form-action 'self'",
   "object-src 'none'",
@@ -24,7 +27,7 @@ const csp = [
 
 const securityHeaders = [
   { key: "Content-Security-Policy", value: csp },
-  { key: "X-Frame-Options", value: "SAMEORIGIN" },
+  { key: "X-Frame-Options", value: isVercelPreview ? "SAMEORIGIN" : "DENY" },
   { key: "X-Content-Type-Options", value: "nosniff" },
   { key: "Referrer-Policy", value: "strict-origin-when-cross-origin" },
   {
