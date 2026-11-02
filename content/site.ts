@@ -124,13 +124,13 @@ export const projects: {
     href: "https://succesprepa.com",
   },
   {
-    title: "Projet en cours",
-    category: "Confidentiel",
+    title: "People Connect Become",
+    category: "Média & Réseau",
     year: "2026",
-    text: "Projet sous embargo : on vous en dit plus au lancement.",
+    text: "Média digital et réseau humain révélant les talents d'Afrique et de la diaspora via portraits éditoriaux et vidéos.",
     color: "paper",
-    image: "/img/projets/en-cours-2.webp",
-    locked: true,
+    image: "/img/projets/pcb.jpg",
+    href: "https://www.peopleconnectbecome.com",
   },
   {
     title: "BFG Moment",

@@ -42,6 +42,10 @@ const REVIEWS_BY_PROJECT: Record<string, { quote1: string; quote2: string }> = {
     quote1: "Préparation d'élite aux concours des grandes écoles INP-HB et ESATIC.",
     quote2: "Simulateur intelligent et mentorat sur-mesure pour les candidats.",
   },
+  "People Connect Become": {
+    quote1: "Révéler les bâtisseurs et créateurs d'Afrique et de la diaspora.",
+    quote2: "Portraits éditoriaux immersifs et documentaires inspirants.",
+  },
   "BFG Moment": {
     quote1: "Studio visuel haut de gamme et captation drone 4K.",
     quote2: "Sublimer les célébrations uniques avec une signature cinématographique.",
