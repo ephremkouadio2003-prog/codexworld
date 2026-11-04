@@ -1,0 +1,43 @@
+# Codexworld
+
+> Agence de développement web et mobile basée à Abidjan (Côte d'Ivoire). Création de sites internet, applications mobiles iOS/Android (React Native), plateformes SaaS, e-commerce avec paiement Mobile Money (Orange Money, MTN MoMo, Wave), API et maintenance. Clients en Côte d'Ivoire, en Afrique francophone et à l'international (France, Europe, Canada). Filiale de Peace Agency. Fondée par Ephrem Kouadio et Jérémie Kouassi.
+
+Contact : contact@codexworld.site · +225 07 07 11 48 18 · https://codexworld.site/#contact
+
+## Services
+
+- [Création de site internet à Abidjan](https://codexworld.site/services/creation-site-internet) : sites vitrines, landing pages, sites professionnels optimisés SEO.
+- [Développement d'application mobile](https://codexworld.site/services/application-mobile) : apps iOS et Android en React Native, publiées sur les stores.
+- [Plateforme SaaS et application web](https://codexworld.site/services/plateforme-saas) : comptes multi-utilisateurs, abonnements, tableaux de bord, IA.
+- [Site e-commerce Mobile Money](https://codexworld.site/services/site-e-commerce) : boutiques en ligne avec Orange Money, MTN MoMo, Wave, carte bancaire.
+- [API et intégrations](https://codexworld.site/services/api-integrations) : paiement, CRM, ERP, WhatsApp Business, automatisation.
+- [Maintenance et refonte](https://codexworld.site/services/maintenance-refonte) : mises à jour, sécurité, reprise de projet, refonte.
+
+## Zones d'intervention
+
+- [Agence web à Abidjan, Côte d'Ivoire](https://codexworld.site/agence-web/abidjan)
+- [Agence web en Afrique francophone](https://codexworld.site/agence-web/afrique)
+- [Agence web à l'international](https://codexworld.site/agence-web/international)
+
+## Réalisations
+
+- Kwiyiah Style (haute couture, Abidjan – Paris) : https://kwiyiah.vercel.app
+- SuccessPrepa (EdTech, préparation aux concours INP-HB, ESATIC) : https://succesprepa.com
+- People Connect Become (média, Afrique et diaspora) : https://www.peopleconnectbecome.com
+- BFG Moment (production vidéo et photo) : https://bfg-moments.vercel.app
+- Peace Magazine (e-commerce de magazines personnalisés) : https://peacemagazine.shop
+- Palm Aura (résidences meublées, Jacqueville) : https://www.palmaura-residences.com
+- Panbi (personal shopper, Abidjan) : https://panbi.vercel.app
+
+## Tarifs indicatifs (FCFA)
+
+- Site vitrine ou landing page : moins de 500 000
+- Site professionnel complet : 500 000 – 1 500 000
+- Boutique en ligne ou application mobile (MVP) : 1 500 000 – 4 000 000
+- Plateforme SaaS : à partir de 4 000 000
+
+## Pages
+
+- [Accueil](https://codexworld.site)
+- [Tous les services](https://codexworld.site/services)
+- [Mentions légales](https://codexworld.site/mentions-legales)

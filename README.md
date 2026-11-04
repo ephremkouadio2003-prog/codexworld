@@ -67,6 +67,14 @@ Ce qui est en place :
 4. **Annuaires & backlinks** : Peace Agency (lien vers Codexworld), annuaires d'entreprises ivoiriens, fiches des projets clients (« Site réalisé par Codexworld » en pied de page des sites livrés).
 5. **Contenu** : publier régulièrement (études de cas des projets, articles « combien coûte… », guides Mobile Money). Un dossier `app/blog` peut réutiliser `SeoPage`.
 6. Vérifier les données structurées avec https://search.google.com/test/rich-results après mise en ligne.
+7. **IndexNow** (Bing, DuckDuckGo, et donc ChatGPT Search / Copilot) : la clé `c2999120555581ab392dfaae81226937` est servie à `/c2999120555581ab392dfaae81226937.txt`. Après chaque mise à jour de contenu, soumettre les URL :
+
+   ```bash
+   curl -X POST https://api.indexnow.org/indexnow -H "Content-Type: application/json" \
+     -d '{"host":"codexworld.site","key":"c2999120555581ab392dfaae81226937","keyLocation":"https://codexworld.site/c2999120555581ab392dfaae81226937.txt","urlList":["https://codexworld.site/","https://codexworld.site/services"]}'
+   ```
+
+8. **`/llms.txt`** : fiche de présentation lisible par les assistants IA (ChatGPT, Claude, Perplexity). À tenir à jour avec `content/seo.ts`.
 
 ## À compléter
 
