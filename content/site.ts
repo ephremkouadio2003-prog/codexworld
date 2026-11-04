@@ -289,7 +289,7 @@ export const budgets = [
 /* -------------------------------------------------------- mentions légales */
 
 export const legal = {
-  updatedAt: "24 octobre 2026",
+  updatedAt: "4 novembre 2026",
   company: {
     tradeName: site.name,
     address: "Abidjan, Côte d'Ivoire",

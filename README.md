@@ -39,6 +39,17 @@ Quand le domaine sera actif : vérifier `codexworld.site` dans Resend (Domains),
 
 Sans `RESEND_API_KEY`, le bouton « Envoyer » ouvre la messagerie du visiteur avec le message pré-rempli.
 
+## Mesure d'audience (Google Tag Manager / GA4)
+
+Le conteneur Google Tag Manager `GTM-K34LKWB8` est chargé par `components/Analytics.tsx` **uniquement en production Vercel** (`VERCEL_ENV=production`), avec Google Consent Mode v2 (cookies refusés par défaut pour les visiteurs UE/UK/Suisse). La balise GA4 elle-même se configure dans l'interface GTM (balise « Google Tag » avec l'identifiant `G-…`, déclenchée sur toutes les pages), puis **Publier** le conteneur.
+
+| Variable                  | Rôle                                                                 |
+| ------------------------- | -------------------------------------------------------------------- |
+| `NEXT_PUBLIC_GTM_ID`      | Remplace l'identifiant du conteneur (optionnel)                      |
+| `NEXT_PUBLIC_ANALYTICS=1` | Force le chargement hors production (test local du conteneur)        |
+
+La CSP (`next.config.ts`) n'autorise les domaines Google que lorsque la mesure est active.
+
 ## Référencement (SEO)
 
 Ce qui est en place :

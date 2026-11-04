@@ -8,14 +8,27 @@ import type { NextConfig } from "next";
 // websocket ne sont autorisés que sur les déploiements de prévisualisation.
 const isVercelPreview = process.env.VERCEL_ENV === "preview";
 const isDevelopment = process.env.NODE_ENV === "development";
+
+// Google Tag Manager + GA4 (voir components/Analytics.tsx) : autorisés
+// uniquement quand la mesure d'audience est active (production Vercel).
+const analyticsEnabled =
+  process.env.VERCEL_ENV === "production" || process.env.NEXT_PUBLIC_ANALYTICS === "1";
+const gtmScript = analyticsEnabled ? " https://www.googletagmanager.com" : "";
+const gtmConnect = analyticsEnabled
+  ? " https://www.googletagmanager.com https://*.google-analytics.com https://analytics.google.com https://*.analytics.google.com https://stats.g.doubleclick.net"
+  : "";
+const gtmImg = analyticsEnabled
+  ? " https://www.googletagmanager.com https://*.google-analytics.com https://*.analytics.google.com"
+  : "";
+
 const csp = [
   "default-src 'self'",
-  `script-src 'self' 'unsafe-inline'${isDevelopment ? " 'unsafe-eval'" : ""}${isVercelPreview ? " https://vercel.live" : ""}`,
+  `script-src 'self' 'unsafe-inline'${isDevelopment ? " 'unsafe-eval'" : ""}${isVercelPreview ? " https://vercel.live" : ""}${gtmScript}`,
   "script-src-attr 'none'",
   `style-src 'self' 'unsafe-inline'${isVercelPreview ? " https://vercel.live" : ""}`,
-  `img-src 'self' data:${isVercelPreview ? " blob: https://vercel.live https://vercel.com" : ""}`,
+  `img-src 'self' data:${isVercelPreview ? " blob: https://vercel.live https://vercel.com" : ""}${gtmImg}`,
   `font-src 'self'${isVercelPreview ? " https://vercel.live https://assets.vercel.com" : ""}`,
-  `connect-src 'self'${isVercelPreview ? " https://vercel.live wss://ws-us3.pusher.com" : ""}`,
+  `connect-src 'self'${isVercelPreview ? " https://vercel.live wss://ws-us3.pusher.com" : ""}${gtmConnect}`,
   `frame-src ${isVercelPreview ? "'self' https://vercel.live" : "'none'"}`,
   `frame-ancestors ${isVercelPreview ? "'self'" : "'none'"}`,
   "manifest-src 'self'",

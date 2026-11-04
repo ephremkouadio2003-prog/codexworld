@@ -216,8 +216,20 @@ export default function MentionsLegales() {
 
             <Section id="cookies" index={5}>
               <p>
-                Dans sa version actuelle, ce site ne dépose aucun cookie de mesure d&apos;audience ni de publicité.
-                Seuls des cookies techniques strictement nécessaires au fonctionnement du site peuvent être utilisés.
+                Ce site utilise Google Analytics 4 (via Google Tag Manager) pour mesurer son audience : pages vues,
+                provenance des visites, pays, type d&apos;appareil. Ces statistiques sont agrégées et servent
+                uniquement à améliorer le site. Aucun cookie publicitaire n&apos;est déposé.
+              </p>
+              <p>
+                Pour les visiteurs situés dans l&apos;Union européenne, l&apos;Espace économique européen, au
+                Royaume-Uni et en Suisse, les cookies de mesure d&apos;audience sont désactivés par défaut (Google
+                Consent Mode) : seules des données techniques anonymes, sans cookie, sont transmises. Vous pouvez
+                par ailleurs bloquer ces cookies à tout moment dans les réglages de votre navigateur ou avec le
+                module complémentaire de désactivation de Google Analytics.
+              </p>
+              <p>
+                Des cookies techniques strictement nécessaires au fonctionnement du site (sécurité du formulaire de
+                contact) peuvent également être utilisés.
               </p>
             </Section>
 
