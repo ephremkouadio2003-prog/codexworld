@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import React, { useState } from "react";
+import { founders } from "@/content/site";
 
 export interface AccordionItem {
   id: string;
@@ -12,46 +13,16 @@ export interface AccordionItem {
   tags?: string[];
 }
 
-export const defaultItems: AccordionItem[] = [
-  {
-    id: "1",
-    url: "/img/ephrem-kouadio.jpg",
-    title: "Ephrem Kouadio",
-    description: "Co-fondateur & Tech Lead · IA & Produit",
-    quote: "Accompagner chaque vision de l'idée initiale jusqu'à un produit livré avec exigence et finesse.",
-    tags: [
-      "Architecture",
-      "Fullstack",
-      "Next.js",
-      "Performance Cloud",
-      "Marketing",
-      "IA",
-      "Automatisation",
-      "Communication",
-      "Produit",
-      "Design UI/UX",
-      "Stratégie",
-      "Web & Mobile",
-    ],
-  },
-  {
-    id: "2",
-    url: "/img/jeremie-kouassi.jpg",
-    title: "Jérémie Kouassi",
-    description: "Co-fondateur & Tech Lead · Produit",
-    quote: "Bâtir des architectures robustes, ultra-performantes et pensées pour durer et scaler.",
-    tags: [
-      "Architecture",
-      "Fullstack",
-      "Next.js",
-      "Performance Cloud",
-      "Produit",
-      "Design UI/UX",
-      "Stratégie",
-      "Web & Mobile",
-    ],
-  },
-];
+// Les fondateurs viennent de content/site.ts (source unique, aussi utilisée
+// pour les données structurées et le pied de page).
+export const defaultItems: AccordionItem[] = founders.map((f, i) => ({
+  id: String(i + 1),
+  url: f.photo ?? "/img/logo-mark.png",
+  title: f.name,
+  description: f.role,
+  quote: f.quote,
+  tags: f.tags,
+}));
 
 export interface TailwindImageAccordionProps {
   items?: AccordionItem[];
@@ -158,7 +129,7 @@ export function TailwindImageAccordion({
               src={item.url}
               width={960}
               height={480}
-              alt={item.title}
+              alt={`Portrait de ${item.title}, ${item.description}`}
               priority
             />
           </article>

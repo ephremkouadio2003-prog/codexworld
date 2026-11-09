@@ -7,7 +7,12 @@ import ProcessOrbit from "@/components/ProcessOrbit";
 import TailwindImageAccordion from "@/components/ui/tailwind-image-accordion";
 import ProjectsCarousel from "@/components/ProjectsCarousel";
 import { homeFaq, servicePages, zonePages } from "@/content/seo";
-import { projects, services, site, stack } from "@/content/site";
+import { founders, projects, services, site, stack } from "@/content/site";
+
+// « A, B & C » pour le pied de page.
+const foundersLine = founders
+  .map((f) => f.name)
+  .reduce((acc, n, i, arr) => (i === 0 ? n : i === arr.length - 1 ? `${acc} & ${n}` : `${acc}, ${n}`), "");
 
 /* ---------------------------------------------------------------- helpers */
 
@@ -253,7 +258,7 @@ export function Team() {
             </Title>
           </div>
           <p data-reveal className="max-w-sm text-lg leading-relaxed text-ink/70">
-            Deux passionnés de code et de produit, réunis pour créer des outils numériques qui comptent.
+            Trois ingénieurs passionnés de code, d&apos;IA et de produit, réunis pour créer des outils numériques qui comptent.
           </p>
         </div>
 
@@ -513,7 +518,7 @@ export function Footer() {
           </nav>
         </div>
         <p className="mt-4 flex flex-wrap items-center gap-x-3 gap-y-1 text-sm font-bold">
-          <span className="text-paper/80">Fondée par Ephrem Kouadio & Jérémie Kouassi</span>
+          <span className="text-paper/80">Fondée par {foundersLine}</span>
           <span className="hidden opacity-40 md:inline">•</span>
           <span className="font-extrabold text-lime">Propulsé par Codexworld</span>
         </p>

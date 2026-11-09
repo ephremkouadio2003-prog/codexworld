@@ -471,7 +471,7 @@ export const zonePages: ZonePage[] = [
       "Codexworld, agence web et mobile basée à Abidjan : création de site internet, application mobile, e-commerce Mobile Money et plateforme SaaS pour les entreprises et startups de Côte d'Ivoire.",
     eyebrow: "Côte d'Ivoire",
     intro:
-      "Codexworld est une agence de développement web et mobile fondée à Abidjan par deux ingénieurs ivoiriens. Nous accompagnons les PME, startups, commerces, écoles, cabinets et institutions de Côte d'Ivoire dans la création de leurs outils numériques : site internet, application mobile, boutique en ligne et logiciel sur mesure.",
+      "Codexworld est une agence de développement web et mobile fondée à Abidjan par trois ingénieurs ivoiriens, spécialisés en développement web, mobile et intelligence artificielle. Nous accompagnons les PME, startups, commerces, écoles, cabinets et institutions de Côte d'Ivoire dans la création de leurs outils numériques : site internet, application mobile, boutique en ligne et logiciel sur mesure.",
     keywords: [
       "agence web Abidjan",
       "agence digitale Abidjan",
