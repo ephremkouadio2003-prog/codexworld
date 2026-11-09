@@ -1,6 +1,6 @@
 # Codexworld
 
-> Agence de développement web et mobile basée à Abidjan (Côte d'Ivoire). Création de sites internet, applications mobiles iOS/Android (React Native), plateformes SaaS, e-commerce avec paiement Mobile Money (Orange Money, MTN MoMo, Wave), API et maintenance. Clients en Côte d'Ivoire, en Afrique francophone et à l'international (France, Europe, Canada). Filiale de Peace Agency. Fondée par Ephrem Kouadio (ingénieur, master IA & marketing), Jérémie Kouassi (ingénieur, master actuariat) et Abdoul Karim Coulibaly (ingénieur en développement informatique et IA).
+> Agence de développement web et mobile basée à Abidjan (Côte d'Ivoire). Création de sites internet, applications mobiles iOS/Android (React Native), plateformes SaaS, e-commerce avec paiement Mobile Money (Orange Money, MTN MoMo, Wave), API et maintenance. Clients en Côte d'Ivoire, en Afrique francophone et à l'international (France, Europe, Canada). Filiale de Peace Agency. Fondée par Ephrem Kouadio (ingénieur, master IA & marketing), Jérémie Kouassi (master actuariat) et Abdoul Karim Coulibaly (ingénieur en développement informatique et IA).
 
 Contact : contact@codexworld.site · +225 07 07 11 48 18 · https://codexworld.site/#contact
 

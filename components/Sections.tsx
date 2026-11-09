@@ -258,7 +258,7 @@ export function Team() {
             </Title>
           </div>
           <p data-reveal className="max-w-sm text-lg leading-relaxed text-ink/70">
-            Trois ingénieurs passionnés de code, d&apos;IA et de produit, réunis pour créer des outils numériques qui comptent.
+            Trois fondateurs passionnés de code, d&apos;IA et de produit, réunis pour créer des outils numériques qui comptent.
           </p>
         </div>
 

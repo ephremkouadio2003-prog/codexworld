@@ -244,8 +244,8 @@ export const founders: {
   },
   {
     name: "Jérémie Kouassi",
-    role: "Co-fondateur & Tech Lead · Ingénieur, Master Actuariat",
-    bio: "Co-fondateur de Codexworld, ingénieur titulaire d'un master en actuariat. Il veille à ce que chaque projet soit solide, rapide, parfaitement conçu et taillé pour scaler, avec une rigueur de modélisation héritée de l'actuariat.",
+    role: "Co-fondateur & Tech Lead · Master Actuariat",
+    bio: "Co-fondateur de Codexworld, titulaire d'un master en actuariat. Il veille à ce que chaque projet soit solide, rapide, parfaitement conçu et taillé pour scaler, avec une rigueur de modélisation héritée de l'actuariat.",
     quote: "Bâtir des architectures robustes, ultra-performantes et pensées pour durer et scaler.",
     photo: "/img/jeremie-kouassi.jpg",
     initials: "JK",
