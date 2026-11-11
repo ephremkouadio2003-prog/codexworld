@@ -3,7 +3,7 @@ import { servicePages, zonePages } from "@/content/seo";
 import { site } from "@/content/site";
 
 // Date de dernière modification du contenu (à mettre à jour quand les textes changent).
-const UPDATED = new Date("2026-10-27");
+const UPDATED = new Date("2026-11-11");
 
 export default function sitemap(): MetadataRoute.Sitemap {
   return [
@@ -15,6 +15,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       images: [`${site.url}/opengraph-image`],
     },
     { url: `${site.url}/services`, lastModified: UPDATED, changeFrequency: "monthly", priority: 0.9 },
+    { url: `${site.url}/tarifs`, lastModified: UPDATED, changeFrequency: "monthly", priority: 0.9 },
     ...servicePages.map((p) => ({
       url: `${site.url}/services/${p.slug}`,
       lastModified: UPDATED,

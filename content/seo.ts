@@ -48,9 +48,9 @@ export const servicePages: ServicePage[] = [
     slug: "creation-site-internet",
     name: "Création de site internet",
     h1: "Création de site internet à Abidjan, en Côte d'Ivoire et à l'international",
-    metaTitle: "Création de site internet à Abidjan (Côte d'Ivoire)",
+    metaTitle: "Création de site internet à Abidjan",
     metaDescription:
-      "Agence de création de site internet à Abidjan : site vitrine, landing page, site professionnel sur mesure, rapide et optimisé SEO. Clients en Côte d'Ivoire, en Afrique et en Europe.",
+      "Création de site internet à Abidjan : site vitrine, landing page ou site pro sur mesure, rapide et optimisé SEO. Devis gratuit en Côte d'Ivoire et en Afrique.",
     eyebrow: "Sites web",
     intro:
       "Un site internet professionnel est la première chose qu'un client, un partenaire ou un investisseur regarde. Codexworld conçoit des sites vitrines, des landing pages et des sites éditoriaux sur mesure, rapides, élégants et pensés pour être trouvés sur Google.",
@@ -125,9 +125,9 @@ export const servicePages: ServicePage[] = [
     slug: "application-mobile",
     name: "Application mobile",
     h1: "Développement d'application mobile iOS et Android à Abidjan",
-    metaTitle: "Développement d'application mobile iOS & Android à Abidjan",
+    metaTitle: "Création d'application mobile à Abidjan",
     metaDescription:
-      "Agence de développement d'applications mobiles à Abidjan, Côte d'Ivoire : apps iOS et Android en React Native, publiées sur l'App Store et Google Play. Startups et entreprises en Afrique et à l'international.",
+      "Développement d'applications mobiles iOS et Android à Abidjan en React Native : MVP, Mobile Money, publication sur les stores. Startups et entreprises.",
     eyebrow: "Applications mobiles",
     intro:
       "Du prototype aux stores, Codexworld développe des applications mobiles fluides et vraiment natives pour iOS et Android, avec une seule base de code. Idéal pour les startups, les services de livraison, la fintech, l'éducation, la santé ou la gestion interne d'une entreprise.",
@@ -194,9 +194,9 @@ export const servicePages: ServicePage[] = [
     slug: "plateforme-saas",
     name: "Plateforme SaaS",
     h1: "Développement de plateforme SaaS et d'application web sur mesure",
-    metaTitle: "Développement SaaS & application web sur mesure en Afrique",
+    metaTitle: "Développement SaaS et logiciel sur mesure",
     metaDescription:
-      "Codexworld développe des plateformes SaaS et applications web sur mesure depuis Abidjan : comptes utilisateurs, abonnements, tableaux de bord, API. Pour startups et entreprises en Afrique et à l'international.",
+      "Plateformes SaaS et logiciels web sur mesure développés à Abidjan : comptes clients, abonnements, tableaux de bord, IA. Pour startups et PME d'Afrique.",
     eyebrow: "SaaS & plateformes",
     intro:
       "Vous avez une idée de logiciel en ligne, un processus métier à digitaliser ou un fichier Excel qui ne tient plus la charge ? Nous concevons des plateformes web solides, sécurisées et prêtes à grandir : gestion multi-comptes, abonnements, tableaux de bord et automatisations.",
@@ -270,9 +270,9 @@ export const servicePages: ServicePage[] = [
     slug: "site-e-commerce",
     name: "Site e-commerce",
     h1: "Création de site e-commerce avec paiement Mobile Money et carte bancaire",
-    metaTitle: "Création de site e-commerce à Abidjan, paiement Mobile Money",
+    metaTitle: "Site e-commerce Mobile Money à Abidjan",
     metaDescription:
-      "Création de boutique en ligne à Abidjan et en Côte d'Ivoire : catalogue, paiement Orange Money, MTN MoMo, Wave et carte bancaire, livraison, back-office simple. Vendez en Afrique et à l'international.",
+      "Création de boutique en ligne en Côte d'Ivoire : paiement Orange Money, MTN MoMo, Wave et carte, livraison, gestion depuis votre téléphone. Devis gratuit.",
     eyebrow: "E-commerce",
     intro:
       "Vendre en ligne en Côte d'Ivoire a ses propres règles : paiement Mobile Money, commande par WhatsApp, livraison par coursier et confiance à construire. Codexworld crée des boutiques en ligne claires, rassurantes et adaptées aux habitudes d'achat locales, tout en restant ouvertes à la clientèle internationale.",
@@ -339,9 +339,9 @@ export const servicePages: ServicePage[] = [
     slug: "api-integrations",
     name: "API & intégrations",
     h1: "Développement d'API et intégrations : connectez vos outils entre eux",
-    metaTitle: "Développement d'API, intégrations et automatisation",
+    metaTitle: "Développement d'API et intégrations",
     metaDescription:
-      "Développement d'API sur mesure, intégration de paiement (Mobile Money, Stripe), CRM, ERP et automatisations depuis Abidjan. Faites communiquer vos outils et gagnez du temps.",
+      "API sur mesure et intégrations depuis Abidjan : paiement Mobile Money et Stripe, WhatsApp Business, CRM, ERP et automatisations. Connectez vos outils.",
     eyebrow: "API & intégrations",
     intro:
       "Vos outils ne se parlent pas ? Vos équipes ressaisissent les mêmes données dans trois logiciels ? Nous développons des API documentées et des intégrations fiables qui connectent paiement, CRM, ERP, messagerie et automatisations, pour que l'information circule sans effort.",
@@ -400,9 +400,9 @@ export const servicePages: ServicePage[] = [
     slug: "maintenance-refonte",
     name: "Maintenance & refonte",
     h1: "Maintenance, refonte et évolution de site web ou d'application",
-    metaTitle: "Maintenance et refonte de site web ou d'application",
+    metaTitle: "Maintenance et refonte de site web",
     metaDescription:
-      "Maintenance de site web et d'application à Abidjan : mises à jour, sécurité, sauvegardes, correction de bugs, amélioration de vitesse et refonte de site ancien. Suivi mensuel pour entreprises en Afrique et en Europe.",
+      "Maintenance et refonte de site web et d'application à Abidjan : sécurité, mises à jour, sauvegardes, vitesse, reprise de projet. Suivi mensuel.",
     eyebrow: "Maintenance & évolution",
     intro:
       "Un site lent, un formulaire qui ne fonctionne plus, une application que personne ne met à jour, un prestataire qui ne répond plus : nous reprenons votre projet, le sécurisons et le faisons évoluer. Et pour les projets que nous livrons, nous restons là après la mise en ligne.",
@@ -466,9 +466,9 @@ export const zonePages: ZonePage[] = [
     slug: "abidjan",
     name: "Abidjan · Côte d'Ivoire",
     h1: "Agence web à Abidjan, Côte d'Ivoire",
-    metaTitle: "Agence web à Abidjan, Côte d'Ivoire : sites, applis & SaaS",
+    metaTitle: "Agence web à Abidjan, Côte d'Ivoire",
     metaDescription:
-      "Codexworld, agence web et mobile basée à Abidjan : création de site internet, application mobile, e-commerce Mobile Money et plateforme SaaS pour les entreprises et startups de Côte d'Ivoire.",
+      "Agence web à Abidjan : création de site internet, application mobile, e-commerce Mobile Money et logiciel sur mesure pour les entreprises de Côte d'Ivoire.",
     eyebrow: "Côte d'Ivoire",
     intro:
       "Codexworld est une agence de développement web et mobile fondée à Abidjan par trois Ivoiriens, spécialisés en développement web, mobile, intelligence artificielle et modélisation. Nous accompagnons les PME, startups, commerces, écoles, cabinets et institutions de Côte d'Ivoire dans la création de leurs outils numériques : site internet, application mobile, boutique en ligne et logiciel sur mesure.",
@@ -538,9 +538,9 @@ export const zonePages: ZonePage[] = [
     slug: "afrique",
     name: "Afrique",
     h1: "Agence de développement web et mobile en Afrique francophone",
-    metaTitle: "Agence web & mobile en Afrique francophone",
+    metaTitle: "Agence web en Afrique francophone",
     metaDescription:
-      "Depuis Abidjan, Codexworld développe sites internet, applications mobiles et plateformes SaaS pour les entreprises et startups d'Afrique francophone : Sénégal, Cameroun, Bénin, Togo, Mali, Burkina Faso, Gabon, RDC…",
+      "Agence web et mobile pour l'Afrique francophone : Sénégal, Cameroun, Bénin, Togo, Mali, Burkina Faso, Gabon, RDC. Sites, applis et SaaS depuis Abidjan.",
     eyebrow: "Afrique",
     intro:
       "Les défis du numérique sont partagés d'un pays africain à l'autre : paiement mobile, connexions variables, clientèle jeune et équipée en smartphones, diaspora à toucher. Depuis Abidjan, nous travaillons avec des clients de toute l'Afrique francophone, et au-delà, qui veulent une équipe technique proche de leur réalité.",
@@ -625,9 +625,9 @@ export const zonePages: ZonePage[] = [
     slug: "international",
     name: "International",
     h1: "Agence de développement web et mobile pour vos projets à l'international",
-    metaTitle: "Agence de développement web & mobile à l'international",
+    metaTitle: "Agence web francophone à l'international",
     metaDescription:
-      "Codexworld développe sites web, applications mobiles et plateformes SaaS pour des clients en France, en Europe, au Canada et pour la diaspora africaine, depuis Abidjan. Qualité d'agence, tarifs compétitifs, échanges en français.",
+      "Sites web, applications mobiles et SaaS pour la France, l'Europe, le Canada et la diaspora africaine. Équipe francophone à Abidjan, tarifs compétitifs.",
     eyebrow: "International",
     intro:
       "Entreprise en France, en Belgique, en Suisse ou au Canada, entrepreneur de la diaspora qui lance un projet entre deux continents, startup qui cherche une équipe technique francophone fiable : Codexworld développe vos produits numériques avec le niveau d'exigence d'une agence européenne et des tarifs qui laissent de la marge pour le reste de votre projet.",
@@ -722,3 +722,101 @@ export const homeFaq: Faq[] = [
     a: "Oui. Le nom de domaine, les comptes d'hébergement et le code source vous appartiennent. Nous vous transmettons tous les accès et la documentation à la livraison.",
   },
 ];
+
+/* ------------------------------------------------------------------ tarifs */
+
+// Page « Tarifs » : requête à forte intention (« prix site internet Abidjan »).
+// Fourchettes alignées sur les budgets du formulaire (content/site.ts) et sur
+// les FAQ des pages services : à mettre à jour ensemble.
+export const pricingPage: ZonePage & { offers: { name: string; min?: number; max?: number }[] } = {
+  slug: "tarifs",
+  name: "Tarifs",
+  h1: "Prix d'un site internet et d'une application à Abidjan en 2026",
+  metaTitle: "Prix d'un site internet à Abidjan en 2026",
+  metaDescription:
+    "Combien coûte un site internet, une boutique en ligne ou une application à Abidjan ? Nos prix en FCFA, ce qui est inclus et ce qui fait varier le devis.",
+  eyebrow: "Tarifs 2026",
+  intro:
+    "Le prix d'un site internet à Abidjan varie de quelques centaines de milliers à plusieurs millions de FCFA. Voici nos fourchettes réelles, ce qu'elles comprennent et ce qui fait monter ou baisser un devis, pour que vous puissiez budgéter votre projet en toute transparence.",
+  keywords: [
+    "prix site internet Abidjan",
+    "prix création site web Côte d'Ivoire",
+    "tarif site vitrine Abidjan",
+    "combien coûte un site internet en Côte d'Ivoire",
+    "prix application mobile Abidjan",
+    "prix site e-commerce Côte d'Ivoire",
+    "devis site internet Abidjan",
+  ],
+  areaServed: ["Abidjan", "Côte d'Ivoire", "Afrique francophone"],
+  offers: [
+    { name: "Landing page ou site vitrine simple", max: 500000 },
+    { name: "Site professionnel sur mesure", min: 500000, max: 1500000 },
+    { name: "Boutique en ligne Shopify / WooCommerce", min: 500000 },
+    { name: "Boutique en ligne sur mesure avec Mobile Money", min: 1500000, max: 4000000 },
+    { name: "Application mobile (MVP)", min: 1500000, max: 4000000 },
+    { name: "Application mobile complète", min: 4000000, max: 10000000 },
+    { name: "Plateforme SaaS ou logiciel sur mesure", min: 4000000 },
+  ],
+  sections: [
+    {
+      title: "Grille de prix indicative",
+      text: "Ces fourchettes correspondent aux projets que nous réalisons le plus souvent à Abidjan. Le prix exact dépend de votre cahier des charges ; nous vous envoyons un devis détaillé, gratuit et sans engagement, après un premier échange.",
+      bullets: [
+        "Landing page ou site vitrine simple (1 à 5 pages) : moins de 500 000 FCFA",
+        "Site professionnel sur mesure (design personnalisé, blog, formulaires, réservation) : 500 000 à 1 500 000 FCFA",
+        "Boutique en ligne sur Shopify ou WooCommerce, à vos couleurs : à partir de 500 000 FCFA",
+        "Boutique en ligne sur mesure avec Orange Money, MTN MoMo, Wave et livraison : 1 500 000 à 4 000 000 FCFA",
+        "Application mobile iOS et Android, version MVP : 1 500 000 à 4 000 000 FCFA",
+        "Application mobile complète avec backend et administration : 4 000 000 à 10 000 000 FCFA et plus",
+        "Plateforme SaaS ou logiciel de gestion sur mesure : à partir de 4 000 000 FCFA",
+        "Maintenance mensuelle : à partir de quelques dizaines de milliers de FCFA par mois",
+      ],
+    },
+    {
+      title: "Ce qui fait varier le prix",
+      text: "Deux sites de cinq pages peuvent avoir des prix très différents. Les principaux facteurs sont toujours les mêmes, et nous les détaillons ligne par ligne dans nos devis.",
+      bullets: [
+        "Le design : maquette sur mesure ou adaptation d'un modèle existant",
+        "Le nombre de pages et la quantité de contenu à rédiger ou à intégrer",
+        "Les fonctionnalités : paiement en ligne, réservation, espace client, multilingue, recherche",
+        "Les intégrations : Mobile Money, WhatsApp Business, CRM, logiciel de facturation",
+        "La rédaction des textes, les photos et la vidéo, si vous ne les fournissez pas",
+        "Le délai : un projet urgent mobilise plus de ressources en même temps",
+      ],
+    },
+    {
+      title: "Ce qui est inclus dans nos devis",
+      text: "Nos prix sont des forfaits par étape, sans mauvaise surprise. Sauf mention contraire, chaque projet comprend : l'atelier de cadrage, les maquettes, le développement, la version mobile, le référencement de base (balises, sitemap, données structurées, vitesse), la mise en ligne, le certificat HTTPS, la formation à la prise en main et un mois de garantie après livraison. Le code et le nom de domaine vous appartiennent.",
+    },
+    {
+      title: "Les coûts annuels à prévoir",
+      text: "Au-delà de la création, un site a quelques frais récurrents : le nom de domaine (.ci, .com ou .africa), l'hébergement, les adresses e-mail professionnelles et, si vous le souhaitez, la maintenance. Pour un site vitrine, ces frais restent modestes ; pour une boutique ou une application, ils dépendent du trafic et des services utilisés. Nous les chiffrons dans le devis pour que vous connaissiez le coût total sur un an.",
+    },
+    {
+      title: "Paiement par étapes",
+      text: "Vous ne payez jamais tout d'avance. Le projet est découpé en étapes (cadrage, design, développement, mise en ligne) et chaque étape est facturée à sa validation. Nous acceptons le virement bancaire, le Mobile Money et la carte bancaire, en FCFA, en euros ou en dollars pour les clients hors Côte d'Ivoire.",
+    },
+  ],
+  faq: [
+    {
+      q: "Quel est le prix minimum pour un site internet à Abidjan ?",
+      a: "Une landing page ou un site vitrine simple démarre sous 500 000 FCFA chez Codexworld. En dessous de ces montants, le site est généralement construit à partir d'un modèle générique, peu rapide et mal référencé, et coûte souvent plus cher à refaire ensuite.",
+    },
+    {
+      q: "Pourquoi un site sur mesure coûte-t-il plus cher qu'un site sur Wix ou WordPress ?",
+      a: "Un site sur mesure est plus rapide, mieux référencé, sans abonnement mensuel obligatoire et entièrement adapté à votre activité. Pour un petit budget, nous pouvons aussi travailler avec WordPress, Shopify ou WooCommerce : nous vous conseillons la solution la plus rentable pour votre cas.",
+    },
+    {
+      q: "Le devis est-il gratuit ?",
+      a: "Oui. Après un premier échange par téléphone, WhatsApp ou visioconférence, nous vous envoyons un devis détaillé et gratuit, sans engagement.",
+    },
+    {
+      q: "Peut-on payer en plusieurs fois ?",
+      a: "Oui. Chaque étape du projet est facturée à sa validation : vous payez au fur et à mesure que vous voyez votre site ou votre application avancer.",
+    },
+    {
+      q: "Les prix sont-ils les mêmes pour les clients hors de Côte d'Ivoire ?",
+      a: "Les fourchettes sont comparables. Pour les clients en Europe ou au Canada, nous facturons en euros ou en dollars, avec des tarifs généralement inférieurs à ceux d'une agence locale à qualité égale.",
+    },
+  ],
+};

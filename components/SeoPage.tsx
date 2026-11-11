@@ -143,6 +143,11 @@ export default function SeoPage({
                 Démarrer un projet
               </Link>
               <p className="mt-4 text-sm font-bold">
+                <Link href="/tarifs" className="underline decoration-lime underline-offset-4 hover:text-lime">
+                  Voir nos tarifs
+                </Link>
+              </p>
+              <p className="mt-2 text-sm font-bold">
                 <a href={`mailto:${site.email}`} className="underline decoration-lime underline-offset-4 hover:text-lime">
                   {site.email}
                 </a>

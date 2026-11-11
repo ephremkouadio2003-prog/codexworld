@@ -7,6 +7,7 @@ export const metadata: Metadata = {
   title: "Mentions légales",
   description: `Mentions légales et politique de confidentialité du site ${site.url.replace(/^https?:\/\//, "")}, ${site.tagline.toLowerCase()}.`,
   alternates: { canonical: "/mentions-legales" },
+  openGraph: { title: "Mentions légales | Codexworld", url: "/mentions-legales", type: "website" },
 };
 
 const SECTIONS = [

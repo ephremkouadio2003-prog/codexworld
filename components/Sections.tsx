@@ -340,6 +340,13 @@ export function HomeFaq() {
           >
             Voir tous nos services
           </Link>
+          <Link
+            data-reveal
+            href="/tarifs"
+            className="justify-self-start text-sm font-extrabold uppercase underline decoration-lime underline-offset-4 hover:text-violet"
+          >
+            Nos tarifs en FCFA
+          </Link>
         </div>
         <div data-reveal>
           <Faq items={homeFaq} />
@@ -463,6 +470,11 @@ export function Footer() {
               <li>
                 <Link href="/services" className="hover:text-lime">
                   Tous les services
+                </Link>
+              </li>
+              <li>
+                <Link href="/tarifs" className="hover:text-lime">
+                  Tarifs 2026
                 </Link>
               </li>
             </ul>

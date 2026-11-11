@@ -23,7 +23,14 @@ export function organizationJsonLd() {
     email: site.email,
     telephone: site.phone,
     foundingDate: site.foundingYear,
-    founder: founders.map((f) => ({ "@type": "Person", name: f.name, jobTitle: f.role })),
+    founder: founders.map((f) => ({
+      "@type": "Person",
+      name: f.name,
+      jobTitle: f.role,
+      description: f.bio,
+      ...(f.photo ? { image: `${site.url}${f.photo}` } : {}),
+      worksFor: { "@id": ORG_ID },
+    })),
     parentOrganization: { "@type": "Organization", name: site.parent },
     address: {
       "@type": "PostalAddress",

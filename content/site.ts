@@ -7,7 +7,7 @@ export const site = {
   // TODO: remplacer par le vrai nom de domaine (sans / final).
   url: "https://codexworld.site",
   description:
-    "Agence de développement web et mobile à Abidjan (Côte d'Ivoire) : création de site internet, application mobile iOS/Android, e-commerce Mobile Money et plateforme SaaS sur mesure, pour l'Afrique et l'international.",
+    "Agence web à Abidjan : création de site internet, application mobile, e-commerce Mobile Money et SaaS sur mesure. Côte d'Ivoire, Afrique et international.",
   // TODO: remplacer par l'adresse de contact réelle de l'agence.
   email: "contact@codexworld.site",
   phone: "+225 07 07 11 48 18",
@@ -266,7 +266,6 @@ export const founders: {
     role: "Co-fondateur · Ingénieur en développement informatique & IA",
     bio: "Co-fondateur de Codexworld, ingénieur en développement informatique et intelligence artificielle. Il conçoit les fonctionnalités IA des produits (assistants, automatisations, analyse de données) et renforce le développement web et mobile.",
     quote: "Mettre l'intelligence artificielle au service de produits utiles, concrets et accessibles.",
-    // TODO: remplacer par un vrai portrait (format portrait, ~960×1200).
     photo: "/img/abdoul-karim-coulibaly.jpg",
     initials: "AK",
     tags: [

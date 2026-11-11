@@ -7,9 +7,9 @@ import { servicePages, zonePages } from "@/content/seo";
 import { site } from "@/content/site";
 import { breadcrumbJsonLd, JsonLd, webPageJsonLd } from "@/lib/seo";
 
-const title = "Nos services : site internet, application mobile, SaaS, e-commerce";
+const title = "Nos services web et mobile à Abidjan";
 const description =
-  "Tous les services de Codexworld, agence web à Abidjan : création de site internet, développement d'application mobile, plateforme SaaS, e-commerce Mobile Money, API et maintenance. Côte d'Ivoire, Afrique, international.";
+  "Création de site internet, application mobile, SaaS, e-commerce Mobile Money, API et maintenance : tous les services de Codexworld, agence web à Abidjan.";
 
 export const metadata: Metadata = {
   title,
@@ -40,7 +40,7 @@ export default function ServicesIndex() {
                 id="services-title"
                 className="mt-4 max-w-[20ch] font-display text-[clamp(2.4rem,6vw,5.5rem)] uppercase leading-[0.95] tracking-[-0.04em]"
               >
-                Ce qu&apos;on <span className="text-lime">code</span> pour vous
+                Services web &amp; mobile <span className="text-lime">à Abidjan</span>
               </h1>
               <p className="mt-6 max-w-[52ch] text-lg leading-relaxed text-paper/75">
                 {site.name} est une agence de développement web et mobile basée à Abidjan. Sites internet,
@@ -73,6 +73,13 @@ export default function ServicesIndex() {
             ))}
           </ul>
         </section>
+
+        <p className="mx-auto -mt-8 mb-16 max-w-[1400px] px-4 text-center text-sm font-bold text-ink/60 md:px-8">
+          Combien ça coûte ?{" "}
+          <Link href="/tarifs" className="underline decoration-lime underline-offset-4 hover:text-violet">
+            Voir nos tarifs 2026 en FCFA
+          </Link>
+        </p>
 
         <section className="mx-auto max-w-[1400px] px-4 pb-20 md:px-8 md:pb-28" aria-labelledby="zones-title">
           <h2 id="zones-title" className="mb-8 font-display text-3xl uppercase tracking-tight md:text-4xl">

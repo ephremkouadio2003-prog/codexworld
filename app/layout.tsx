@@ -22,7 +22,7 @@ export const viewport: Viewport = {
 };
 
 // Titre de l'accueil : mot-clé principal + ville, sous 70 caractères.
-const homeTitle = `${site.name} · Agence web à Abidjan — Sites internet, applis & SaaS`;
+const homeTitle = `${site.name} · Agence web à Abidjan, Côte d'Ivoire`;
 
 // Code de vérification Google Search Console (balise <meta name="google-site-verification">).
 // À définir sur Vercel : NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION=xxxx (voir README).
