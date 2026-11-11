@@ -35,9 +35,11 @@ Détail : https://codexworld.site/tarifs
 
 
 - Site internet (vitrine, landing page) : à partir de 40 000, qualité professionnelle
-- Boutique en ligne : à partir de 500 000 (Shopify / WooCommerce), 1 500 000 sur mesure avec Mobile Money
-- Application mobile iOS et Android : à partir de 1 500 000
-- Plateforme SaaS : à partir de 4 000 000
+- Boutique e-commerce : à partir de 70 000
+- Boutique sur mesure avec Mobile Money : à partir de 100 000
+- Application mobile iOS et Android : sur devis
+- Plateforme SaaS : sur devis
+- Maintenance : sur devis
 - Prix final sur devis gratuit
 
 ## Pages

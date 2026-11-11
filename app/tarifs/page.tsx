@@ -35,13 +35,18 @@ const offersJsonLd = {
     itemListElement: page.offers.map((o) => ({
       "@type": "Offer",
       name: o.name,
-      priceCurrency: "XOF",
-      priceSpecification: {
-        "@type": "PriceSpecification",
-        priceCurrency: "XOF",
-        ...(o.min ? { minPrice: o.min } : {}),
-        ...(o.max ? { maxPrice: o.max } : {}),
-      },
+      // Les prestations « sur devis » n'ont pas de prix publié.
+      ...(o.min || o.max
+        ? {
+            priceCurrency: "XOF",
+            priceSpecification: {
+              "@type": "PriceSpecification",
+              priceCurrency: "XOF",
+              ...(o.min ? { minPrice: o.min } : {}),
+              ...(o.max ? { maxPrice: o.max } : {}),
+            },
+          }
+        : {}),
     })),
   },
 };

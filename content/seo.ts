@@ -163,7 +163,7 @@ export const servicePages: ServicePage[] = [
       },
       {
         title: "Combien coûte une application mobile ?",
-        text: "Une application mobile démarre à partir de 1 500 000 FCFA pour une première version (MVP) qui permet de tester le marché. Le budget d'une application complète (paiement, backend, administration, notifications) dépend du périmètre et fait l'objet d'un devis détaillé. Nous découpons le projet en étapes pour que vous puissiez lancer vite et investir progressivement.",
+        text: "Le prix d'une application mobile est établi sur devis, car il dépend entièrement du périmètre : une première version (MVP) pour tester le marché ne coûte pas la même chose qu'une application complète avec paiement, backend, administration et notifications. Nous vous envoyons un devis détaillé et gratuit après un premier échange. Nous découpons le projet en étapes pour que vous puissiez lancer vite et investir progressivement.",
       },
     ],
     faq: [
@@ -239,7 +239,7 @@ export const servicePages: ServicePage[] = [
       },
       {
         title: "Budget et modèle de collaboration",
-        text: "Une plateforme SaaS démarre à partir de 4 000 000 FCFA pour une première version ; le budget d'un produit complet est établi sur devis. Nous travaillons au forfait par étape ou en équipe dédiée mensuelle pour les startups qui ont besoin d'une équipe technique sur la durée (CTO externalisé).",
+        text: "Le prix d'une plateforme SaaS est établi sur devis, selon les fonctionnalités, le nombre de profils utilisateurs et les intégrations nécessaires. Nous travaillons au forfait par étape ou en équipe dédiée mensuelle pour les startups qui ont besoin d'une équipe technique sur la durée (CTO externalisé).",
       },
     ],
     faq: [
@@ -299,7 +299,7 @@ export const servicePages: ServicePage[] = [
         ],
       },
       {
-        title: "Sur mesure ou Shopify / WooCommerce ?",
+        title: "Boutique e-commerce ou boutique sur mesure ?",
         text: "Pour une boutique standard avec un budget limité, nous pouvons configurer Shopify ou WooCommerce et y brancher les paiements locaux. Pour une expérience de marque forte, un catalogue complexe, de la personnalisation de produit ou de gros volumes, nous développons une boutique sur mesure en Next.js, plus rapide, mieux référencée et sans abonnement mensuel contraignant.",
       },
       {
@@ -314,7 +314,7 @@ export const servicePages: ServicePage[] = [
     faq: [
       {
         q: "Combien coûte un site e-commerce en Côte d'Ivoire ?",
-        a: "Une boutique sur Shopify ou WooCommerce configurée et habillée à votre marque démarre à partir de 500 000 FCFA. Une boutique sur mesure avec paiement Mobile Money, livraison et back-office démarre à partir de 1 500 000 FCFA. Le prix exact est établi sur devis selon votre catalogue et vos fonctionnalités.",
+        a: "Une boutique e-commerce à votre marque démarre à partir de 70 000 FCFA. Une boutique sur mesure avec paiement Mobile Money, livraison et back-office démarre à partir de 100 000 FCFA. Le prix exact est établi sur devis selon votre catalogue et vos fonctionnalités.",
       },
       {
         q: "Comment accepter Orange Money ou Wave sur mon site ?",
@@ -522,7 +522,7 @@ export const zonePages: ZonePage[] = [
       },
       {
         q: "Quel est le prix d'un site internet à Abidjan ?",
-        a: "Nos sites internet démarrent à partir de 40 000 FCFA, pour un travail de qualité professionnelle. Les boutiques en ligne démarrent à partir de 500 000 FCFA et les applications mobiles à partir de 1 500 000 FCFA. Chaque devis est gratuit et établi après un échange sur votre projet.",
+        a: "Nos sites internet démarrent à partir de 40 000 FCFA, pour un travail de qualité professionnelle. Les boutiques e-commerce démarrent à partir de 70 000 FCFA, et à partir de 100 000 FCFA sur mesure avec Mobile Money. Les applications mobiles et les plateformes SaaS sont sur devis. Chaque devis est gratuit et établi après un échange sur votre projet.",
       },
       {
         q: "Acceptez-vous les paiements en plusieurs fois ?",
@@ -699,7 +699,7 @@ export const homeFaq: Faq[] = [
   },
   {
     q: "Combien coûte la création d'un site internet ou d'une application ?",
-    a: "Nos sites internet démarrent à partir de 40 000 FCFA, avec un travail de qualité professionnelle. Les boutiques en ligne démarrent à partir de 500 000 FCFA, les applications mobiles à partir de 1 500 000 FCFA et les plateformes SaaS à partir de 4 000 000 FCFA. Le prix final dépend de votre projet : nous envoyons un devis détaillé et gratuit après un premier échange.",
+    a: "Nos sites internet démarrent à partir de 40 000 FCFA, avec un travail de qualité professionnelle. Les boutiques e-commerce démarrent à partir de 70 000 FCFA, et à partir de 100 000 FCFA sur mesure avec Mobile Money. Les applications mobiles, les plateformes SaaS et la maintenance sont sur devis. Le prix final dépend de votre projet : nous envoyons un devis détaillé et gratuit après un premier échange.",
   },
   {
     q: "Travaillez-vous uniquement à Abidjan ?",
@@ -750,10 +750,11 @@ export const pricingPage: ZonePage & { offers: { name: string; min?: number; max
   areaServed: ["Abidjan", "Côte d'Ivoire", "Afrique francophone"],
   offers: [
     { name: "Site internet (vitrine, landing page)", min: 40000 },
-    { name: "Boutique en ligne Shopify / WooCommerce", min: 500000 },
-    { name: "Boutique en ligne sur mesure avec Mobile Money", min: 1500000 },
-    { name: "Application mobile iOS et Android", min: 1500000 },
-    { name: "Plateforme SaaS ou logiciel sur mesure", min: 4000000 },
+    { name: "Boutique e-commerce", min: 70000 },
+    { name: "Boutique sur mesure avec Mobile Money", min: 100000 },
+    { name: "Application mobile iOS et Android (sur devis)" },
+    { name: "Plateforme SaaS ou logiciel sur mesure (sur devis)" },
+    { name: "Maintenance (sur devis)" },
   ],
   sections: [
     {
@@ -762,10 +763,10 @@ export const pricingPage: ZonePage & { offers: { name: string; min?: number; max
       bullets: [
         "Site internet (vitrine, landing page) : à partir de 40 000 FCFA",
         "Site avec fonctionnalités avancées (blog, réservation, espace client, multilingue) : sur devis",
-        "Boutique en ligne sur Shopify ou WooCommerce, à vos couleurs : à partir de 500 000 FCFA",
-        "Boutique en ligne sur mesure avec Orange Money, MTN MoMo, Wave et livraison : à partir de 1 500 000 FCFA",
-        "Application mobile iOS et Android : à partir de 1 500 000 FCFA",
-        "Plateforme SaaS ou logiciel de gestion sur mesure : à partir de 4 000 000 FCFA",
+        "Boutique e-commerce, à vos couleurs : à partir de 70 000 FCFA",
+        "Boutique sur mesure avec Orange Money, MTN MoMo, Wave et livraison : à partir de 100 000 FCFA",
+        "Application mobile iOS et Android : sur devis",
+        "Plateforme SaaS ou logiciel de gestion sur mesure : sur devis",
         "Maintenance mensuelle : sur devis selon le projet",
       ],
     },
