@@ -296,11 +296,11 @@ export const projectTypes = [
 
 // Fourchettes indicatives, en francs CFA (XOF).
 export const budgets = [
-  "Moins de 500 000 FCFA",
+  "Moins de 100 000 FCFA",
+  "100 000 – 500 000 FCFA",
   "500 000 – 1 500 000 FCFA",
   "1 500 000 – 4 000 000 FCFA",
-  "4 000 000 – 10 000 000 FCFA",
-  "Plus de 10 000 000 FCFA",
+  "Plus de 4 000 000 FCFA",
   "Je ne sais pas encore",
 ]
 

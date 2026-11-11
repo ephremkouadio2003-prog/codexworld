@@ -94,7 +94,7 @@ export const servicePages: ServicePage[] = [
       },
       {
         title: "Combien coûte un site internet à Abidjan ?",
-        text: "Le prix dépend du nombre de pages, du design et des fonctionnalités. L'offre Starter est à 75 000 FCFA ; un site professionnel complet avec design sur mesure, blog et réservation se situe généralement entre 500 000 et 1 500 000 FCFA. Nous envoyons un devis clair et détaillé après un premier échange, sans engagement. Pour les clients hors Côte d'Ivoire, nous facturons en euros ou en dollars.",
+        text: "Nos sites internet démarrent à partir de 40 000 FCFA, avec la même exigence de qualité que nos projets les plus ambitieux : design soigné, rapidité, version mobile et bases du référencement. Le prix final dépend du nombre de pages, du design et des fonctionnalités (blog, réservation, paiement…). Nous envoyons un devis clair et détaillé après un premier échange, sans engagement. Pour les clients hors Côte d'Ivoire, nous facturons en euros ou en dollars.",
       },
     ],
     faq: [
@@ -163,7 +163,7 @@ export const servicePages: ServicePage[] = [
       },
       {
         title: "Combien coûte une application mobile ?",
-        text: "Un MVP (version minimale pour tester le marché) se situe généralement entre 1 500 000 et 4 000 000 FCFA. Une application complète avec paiement, backend, administration et notifications se situe entre 4 000 000 et 10 000 000 FCFA ou plus selon le périmètre. Nous découpons le projet en étapes pour que vous puissiez lancer vite et investir progressivement.",
+        text: "Une application mobile démarre à partir de 1 500 000 FCFA pour une première version (MVP) qui permet de tester le marché. Le budget d'une application complète (paiement, backend, administration, notifications) dépend du périmètre et fait l'objet d'un devis détaillé. Nous découpons le projet en étapes pour que vous puissiez lancer vite et investir progressivement.",
       },
     ],
     faq: [
@@ -239,7 +239,7 @@ export const servicePages: ServicePage[] = [
       },
       {
         title: "Budget et modèle de collaboration",
-        text: "Une plateforme SaaS se situe généralement entre 4 000 000 et 10 000 000 FCFA pour un MVP et au-delà pour un produit complet. Nous travaillons au forfait par étape ou en équipe dédiée mensuelle pour les startups qui ont besoin d'une équipe technique sur la durée (CTO externalisé).",
+        text: "Une plateforme SaaS démarre à partir de 4 000 000 FCFA pour une première version ; le budget d'un produit complet est établi sur devis. Nous travaillons au forfait par étape ou en équipe dédiée mensuelle pour les startups qui ont besoin d'une équipe technique sur la durée (CTO externalisé).",
       },
     ],
     faq: [
@@ -314,7 +314,7 @@ export const servicePages: ServicePage[] = [
     faq: [
       {
         q: "Combien coûte un site e-commerce en Côte d'Ivoire ?",
-        a: "Une boutique sur Shopify ou WooCommerce configurée et habillée à votre marque démarre autour de 500 000 FCFA. Une boutique sur mesure avec paiement Mobile Money, livraison et back-office se situe généralement entre 1 500 000 et 4 000 000 FCFA.",
+        a: "Une boutique sur Shopify ou WooCommerce configurée et habillée à votre marque démarre à partir de 500 000 FCFA. Une boutique sur mesure avec paiement Mobile Money, livraison et back-office démarre à partir de 1 500 000 FCFA. Le prix exact est établi sur devis selon votre catalogue et vos fonctionnalités.",
       },
       {
         q: "Comment accepter Orange Money ou Wave sur mon site ?",
@@ -522,7 +522,7 @@ export const zonePages: ZonePage[] = [
       },
       {
         q: "Quel est le prix d'un site internet à Abidjan ?",
-        a: "L'offre Starter est à 75 000 FCFA. Un site professionnel complet se situe entre 500 000 et 1 500 000 FCFA, une boutique en ligne ou une application mobile à partir de 1 500 000 FCFA. Chaque devis est établi après un échange sur votre projet.",
+        a: "Nos sites internet démarrent à partir de 40 000 FCFA, pour un travail de qualité professionnelle. Les boutiques en ligne démarrent à partir de 500 000 FCFA et les applications mobiles à partir de 1 500 000 FCFA. Chaque devis est gratuit et établi après un échange sur votre projet.",
       },
       {
         q: "Acceptez-vous les paiements en plusieurs fois ?",
@@ -699,7 +699,7 @@ export const homeFaq: Faq[] = [
   },
   {
     q: "Combien coûte la création d'un site internet ou d'une application ?",
-    a: "L'offre Starter est à 75 000 FCFA. Un site professionnel complet se situe entre 500 000 et 1 500 000 FCFA, une boutique en ligne ou une application mobile à partir de 1 500 000 FCFA, une plateforme SaaS à partir de 4 000 000 FCFA. Nous envoyons un devis détaillé après un premier échange gratuit.",
+    a: "Nos sites internet démarrent à partir de 40 000 FCFA, avec un travail de qualité professionnelle. Les boutiques en ligne démarrent à partir de 500 000 FCFA, les applications mobiles à partir de 1 500 000 FCFA et les plateformes SaaS à partir de 4 000 000 FCFA. Le prix final dépend de votre projet : nous envoyons un devis détaillé et gratuit après un premier échange.",
   },
   {
     q: "Travaillez-vous uniquement à Abidjan ?",
@@ -726,8 +726,8 @@ export const homeFaq: Faq[] = [
 /* ------------------------------------------------------------------ tarifs */
 
 // Page « Tarifs » : requête à forte intention (« prix site internet Abidjan »).
-// Fourchettes alignées sur les budgets du formulaire (content/site.ts) et sur
-// les FAQ des pages services : à mettre à jour ensemble.
+// Prix de départ alignés sur les FAQ (accueil, services, Abidjan), llms.txt et
+// les budgets du formulaire (content/site.ts) : à mettre à jour ensemble.
 export const pricingPage: ZonePage & { offers: { name: string; min?: number; max?: number }[] } = {
   slug: "tarifs",
   name: "Tarifs",
@@ -737,7 +737,7 @@ export const pricingPage: ZonePage & { offers: { name: string; min?: number; max
     "Combien coûte un site internet, une boutique en ligne ou une application à Abidjan ? Nos prix en FCFA, ce qui est inclus et ce qui fait varier le devis.",
   eyebrow: "Tarifs 2026",
   intro:
-    "Le prix d'un site internet à Abidjan varie de quelques centaines de milliers à plusieurs millions de FCFA. Voici nos fourchettes réelles, ce qu'elles comprennent et ce qui fait monter ou baisser un devis, pour que vous puissiez budgéter votre projet en toute transparence.",
+    "Chez Codexworld, un site internet démarre à partir de 40 000 FCFA. Un prix accessible, sans compromis sur la qualité : chaque site est conçu par notre équipe avec les mêmes standards que nos projets les plus ambitieux. Voici nos prix de départ par type de projet et ce qui fait varier un devis.",
   keywords: [
     "prix site internet Abidjan",
     "prix création site web Côte d'Ivoire",
@@ -749,27 +749,24 @@ export const pricingPage: ZonePage & { offers: { name: string; min?: number; max
   ],
   areaServed: ["Abidjan", "Côte d'Ivoire", "Afrique francophone"],
   offers: [
-    { name: "Landing page ou site vitrine simple", max: 500000 },
-    { name: "Site professionnel sur mesure", min: 500000, max: 1500000 },
+    { name: "Site internet (vitrine, landing page)", min: 40000 },
     { name: "Boutique en ligne Shopify / WooCommerce", min: 500000 },
-    { name: "Boutique en ligne sur mesure avec Mobile Money", min: 1500000, max: 4000000 },
-    { name: "Application mobile (MVP)", min: 1500000, max: 4000000 },
-    { name: "Application mobile complète", min: 4000000, max: 10000000 },
+    { name: "Boutique en ligne sur mesure avec Mobile Money", min: 1500000 },
+    { name: "Application mobile iOS et Android", min: 1500000 },
     { name: "Plateforme SaaS ou logiciel sur mesure", min: 4000000 },
   ],
   sections: [
     {
-      title: "Grille de prix indicative",
-      text: "Ces fourchettes correspondent aux projets que nous réalisons le plus souvent à Abidjan. Le prix exact dépend de votre cahier des charges ; nous vous envoyons un devis détaillé, gratuit et sans engagement, après un premier échange.",
+      title: "Nos prix de départ",
+      text: "Ces prix de départ correspondent aux projets que nous réalisons le plus souvent. Le prix exact dépend de votre cahier des charges ; nous vous envoyons un devis détaillé, gratuit et sans engagement, après un premier échange.",
       bullets: [
-        "Landing page ou site vitrine simple (1 à 5 pages) : moins de 500 000 FCFA",
-        "Site professionnel sur mesure (design personnalisé, blog, formulaires, réservation) : 500 000 à 1 500 000 FCFA",
+        "Site internet (vitrine, landing page) : à partir de 40 000 FCFA",
+        "Site avec fonctionnalités avancées (blog, réservation, espace client, multilingue) : sur devis",
         "Boutique en ligne sur Shopify ou WooCommerce, à vos couleurs : à partir de 500 000 FCFA",
-        "Boutique en ligne sur mesure avec Orange Money, MTN MoMo, Wave et livraison : 1 500 000 à 4 000 000 FCFA",
-        "Application mobile iOS et Android, version MVP : 1 500 000 à 4 000 000 FCFA",
-        "Application mobile complète avec backend et administration : 4 000 000 à 10 000 000 FCFA et plus",
+        "Boutique en ligne sur mesure avec Orange Money, MTN MoMo, Wave et livraison : à partir de 1 500 000 FCFA",
+        "Application mobile iOS et Android : à partir de 1 500 000 FCFA",
         "Plateforme SaaS ou logiciel de gestion sur mesure : à partir de 4 000 000 FCFA",
-        "Maintenance mensuelle : à partir de quelques dizaines de milliers de FCFA par mois",
+        "Maintenance mensuelle : sur devis selon le projet",
       ],
     },
     {
@@ -786,7 +783,7 @@ export const pricingPage: ZonePage & { offers: { name: string; min?: number; max
     },
     {
       title: "Ce qui est inclus dans nos devis",
-      text: "Nos prix sont des forfaits par étape, sans mauvaise surprise. Sauf mention contraire, chaque projet comprend : l'atelier de cadrage, les maquettes, le développement, la version mobile, le référencement de base (balises, sitemap, données structurées, vitesse), la mise en ligne, le certificat HTTPS, la formation à la prise en main et un mois de garantie après livraison. Le code et le nom de domaine vous appartiennent.",
+      text: "Nos prix sont des forfaits clairs, sans mauvaise surprise. Quel que soit le budget, nous appliquons les mêmes standards de qualité : design soigné, site rapide et adapté au mobile, référencement de base (balises, sitemap, données structurées, vitesse), certificat HTTPS et mise en ligne. Le contenu exact de chaque formule (nombre de pages, maquettes sur mesure, formation, garantie) est détaillé dans le devis. Le code et le nom de domaine vous appartiennent.",
     },
     {
       title: "Les coûts annuels à prévoir",
@@ -800,7 +797,7 @@ export const pricingPage: ZonePage & { offers: { name: string; min?: number; max
   faq: [
     {
       q: "Quel est le prix minimum pour un site internet à Abidjan ?",
-      a: "Une landing page ou un site vitrine simple démarre sous 500 000 FCFA chez Codexworld. En dessous de ces montants, le site est généralement construit à partir d'un modèle générique, peu rapide et mal référencé, et coûte souvent plus cher à refaire ensuite.",
+      a: "Nos sites internet démarrent à partir de 40 000 FCFA. Ce prix d'entrée n'est pas synonyme de bas de gamme : chaque site est conçu par notre équipe avec les mêmes exigences que nos projets plus importants (design soigné, rapidité, version mobile, bases du référencement). Le prix augmente ensuite avec le nombre de pages et les fonctionnalités.",
     },
     {
       q: "Pourquoi un site sur mesure coûte-t-il plus cher qu'un site sur Wix ou WordPress ?",

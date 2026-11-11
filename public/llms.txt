@@ -29,15 +29,16 @@ Contact : contact@codexworld.site · +225 07 07 11 48 18 · https://codexworld.s
 - Palm Aura (résidences meublées, Jacqueville) : https://www.palmaura-residences.com
 - Panbi (personal shopper, Abidjan) : https://panbi.vercel.app
 
-## Tarifs indicatifs (FCFA)
+## Tarifs (FCFA, prix de départ)
 
 Détail : https://codexworld.site/tarifs
 
 
-- Site vitrine ou landing page : moins de 500 000
-- Site professionnel complet : 500 000 – 1 500 000
-- Boutique en ligne ou application mobile (MVP) : 1 500 000 – 4 000 000
+- Site internet (vitrine, landing page) : à partir de 40 000, qualité professionnelle
+- Boutique en ligne : à partir de 500 000 (Shopify / WooCommerce), 1 500 000 sur mesure avec Mobile Money
+- Application mobile iOS et Android : à partir de 1 500 000
 - Plateforme SaaS : à partir de 4 000 000
+- Prix final sur devis gratuit
 
 ## Pages
 
