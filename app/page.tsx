@@ -2,6 +2,7 @@ import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import ScrollEffects from "@/components/ScrollEffects";
 import {
+  Clients,
   Contact,
   CrowdCTA,
   Footer,
@@ -26,6 +27,7 @@ export default function Home() {
         <Marquee />
         <Services />
         <Projects />
+        <Clients />
         <Process />
         <Team />
         <HomeFaq />

@@ -7,7 +7,7 @@ import ProcessOrbit from "@/components/ProcessOrbit";
 import TailwindImageAccordion from "@/components/ui/tailwind-image-accordion";
 import ProjectsCarousel from "@/components/ProjectsCarousel";
 import { homeFaq, servicePages, zonePages } from "@/content/seo";
-import { founders, projects, services, site, stack } from "@/content/site";
+import { clients, founders, projects, services, site, stack } from "@/content/site";
 
 // « A, B & C » pour le pied de page.
 const foundersLine = founders
@@ -195,6 +195,59 @@ export function Projects() {
                 <span className="text-ink/50"> · {p.category}</span>
               </li>
             ))}
+        </ul>
+      </div>
+    </section>
+  );
+}
+
+/* ---------------------------------------------------------------- clients */
+
+const CLIENT_BG = { white: "bg-white", ink: "bg-ink", navy: "bg-[#0a1c3a]" } as const;
+
+export function Clients() {
+  return (
+    <section
+      id="clients"
+      aria-labelledby="clients-title"
+      className="border-t-2 border-ink bg-paper px-4 py-20 md:px-8 md:py-28"
+    >
+      <div className="mx-auto max-w-[1400px]">
+        <div className="mb-10 flex flex-col justify-between gap-6 md:mb-14 md:flex-row md:items-end">
+          <h2
+            id="clients-title"
+            data-reveal
+            className="font-display text-[clamp(2.2rem,5.5vw,4.75rem)] uppercase leading-[0.95] tracking-[-0.04em]"
+          >
+            Ils nous ont fait <span className="text-violet">confiance</span>
+          </h2>
+          <p data-reveal className="max-w-sm text-lg leading-relaxed text-ink/70">
+            Marques, médias et entrepreneurs qui ont confié leur présence en ligne à Codexworld.
+          </p>
+        </div>
+
+        <ul data-reveal className="grid grid-cols-2 gap-4 md:grid-cols-3 md:gap-6 xl:grid-cols-6">
+          {clients.map((c) => (
+            <li key={c.name}>
+              <a
+                href={c.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                title={c.name}
+                className={`group flex aspect-[4/3] items-center justify-center rounded-3xl border-2 border-ink p-6 shadow-[4px_4px_0_var(--ink)] transition-transform hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-[6px_6px_0_var(--violet)] ${CLIENT_BG[c.bg]}`}
+              >
+                <Image
+                  src={c.logo}
+                  alt={`Logo ${c.name}`}
+                  width={c.width}
+                  height={c.height}
+                  unoptimized={c.logo.endsWith(".svg")}
+                  sizes="(min-width: 1280px) 200px, (min-width: 768px) 30vw, 45vw"
+                  className="h-auto max-h-20 w-auto max-w-full object-contain"
+                />
+              </a>
+            </li>
+          ))}
         </ul>
       </div>
     </section>

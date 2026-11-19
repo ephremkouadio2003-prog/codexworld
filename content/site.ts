@@ -170,6 +170,25 @@ export const projects: {
   },
 ];
 
+// « Ils nous ont fait confiance » : les clients dont le site est en ligne.
+// `bg` : fond de la tuile, choisi pour que le logo reste lisible (logos blancs
+// sur fond sombre).
+export const clients: {
+  name: string;
+  logo: string;
+  href: string;
+  bg: "white" | "ink" | "navy";
+  width: number;
+  height: number;
+}[] = [
+  { name: "Panbi", logo: "/img/clients/panbi.svg", href: "https://panbi.vercel.app", bg: "white", width: 1005, height: 257 },
+  { name: "Peace Magazine", logo: "/img/clients/peace-magazine.webp", href: "https://peacemagazine.shop", bg: "white", width: 420, height: 173 },
+  { name: "SuccessPrepa", logo: "/img/clients/successprepa.webp", href: "https://succesprepa.com", bg: "navy", width: 567, height: 152 },
+  { name: "Résidences Palm Aura", logo: "/img/clients/palm-aura.jpg", href: "https://www.palmaura-residences.com", bg: "white", width: 480, height: 356 },
+  { name: "BFG Moment", logo: "/img/clients/bfg-moment.svg", href: "https://bfg-moments.vercel.app", bg: "white", width: 500, height: 500 },
+  { name: "People Connect Become", logo: "/img/clients/pcb.svg", href: "https://www.peopleconnectbecome.com", bg: "white", width: 120, height: 120 },
+];
+
 // Les quatre étapes de la méthode. `at` : progression (0 → 1) du scroll à
 // laquelle l'étape s'allume dans la frise.
 export const process = [
@@ -247,7 +266,7 @@ export const founders: {
     role: "Co-fondateur & Tech Lead · Master Actuariat",
     bio: "Co-fondateur de Codexworld, titulaire d'un master en actuariat. Il veille à ce que chaque projet soit solide, rapide, parfaitement conçu et taillé pour scaler, avec une rigueur de modélisation héritée de l'actuariat.",
     quote: "Bâtir des architectures robustes, ultra-performantes et pensées pour durer et scaler.",
-    photo: "/img/jeremie-kouassi.jpg",
+    photo: "/img/jeremie-kouassi-2026.jpg",
     initials: "JK",
     tags: [
       "Architecture",
